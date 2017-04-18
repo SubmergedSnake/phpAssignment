@@ -1,8 +1,6 @@
 @CHARSET "UTF-8";
 
-*{
-	font-family: 'Handlee', cursive;
-}
+*{font-family: 'Handlee', cursive;}
 
 a{
 	border-radius:0.5em;
@@ -14,9 +12,7 @@ a{
 	display:block;
 }
 
-nav.subnav >li > a{
-	display:inline;
-}
+nav.subnav >li > a{display:inline;}
 
 
 li.stack{
@@ -34,9 +30,7 @@ a.arrow:hover:after{
 }
 
 
-body{
-	background-image:url('../Images/bookbinding.jpg');
-}
+body{background-image:url('../Images/bookbinding.jpg');}
 
 button{
 	background:white;
@@ -45,9 +39,15 @@ button{
 	cursor:pointer;
 }
 
+#submit{
+	position:absolute;
+	z-index:1;
+}
+
 #submit:hover{
 	font-size:1em;
 	background:#66ff66;
+
 }
 
 header{
@@ -56,9 +56,7 @@ header{
 	text-align:center;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	color:white;
-}
+h1, h2, h3, h4, h5, h6 {color:white;}
 
 
 li{
@@ -67,9 +65,7 @@ li{
 }
 
 
-small {
-	color:#ff8080;
-}
+small {color:#ff8080;}
 
 /*CSS for form*/
 label{
@@ -82,11 +78,17 @@ input, textarea {
   display: inline-block;
   float: left;
   width:100%;
+  border-radius:0.3em;
 }
 
-form {
-	color:white;
+input:focus {
+    outline: none !important;
+    border:1px solid rgba(255, 128, 128, 0.6);
 }
+
+textarea{height:150px;}
+
+form {color:white;margin-bottom:3em;}
 
 
 /*CSS for tooltip*/
@@ -104,16 +106,14 @@ form {
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-    
-    
+    left:-7px;
     position: absolute;
     z-index: 1;
-   float:left;
+   
 }
 
-.tooltip:hover .tooltiptext {
-    visibility: hidden;
-}
+.right{float:right;padding-right:0.3em;}
+.tooltip:hover .tooltiptext {visibility: hidden;}
 
 /*CSS styles for errors */
 .err{
@@ -121,9 +121,7 @@ form {
 	padding-left:1em;
 }
 
-.success{
-	color:#66ff66;
-}
+.success{color:#66ff66;}
 
 
 
@@ -165,12 +163,8 @@ form {
 	}
 	.mediimg{width:100%;}
 	.landingnav{margin-top:20%;}
-	li.stack > a{
-	margin:auto;
-	}
-	.tooltip:hover .tooltiptext {
-    visibility: visible;
-}
+	li.stack > a{margin:auto;}
+	.tooltip:hover .tooltiptext {visibility: visible;}
 label{width:15%;}
 input,textarea{width:25%;}
 }

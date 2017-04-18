@@ -80,7 +80,7 @@ if (isset ( $_POST ["bookit"] )) {
 			</h3>
 			<p>
 				<label class="tooltip"><span class="tooltiptext">What is the name of
-						this book?</span>Title</label> <input type="text" name="title"
+						this book?</span>Title<small class="right">&ImaginaryI;</small></label> <input placeholder="&sstarf;" type="text" name="title"
 					value="<?php print(htmlentities($book->getTitle(), ENT_QUOTES, "UTF-8"))?>">
 
      <?php
@@ -90,7 +90,7 @@ if (isset ( $_POST ["bookit"] )) {
 
 			<p>
 				<label class="tooltip"><span class="tooltiptext">Who wrote this
-						book?</span>The author</label> <input type="text" name="author"
+						book?</span>The author<small class="right">&ImaginaryI;</small></label> <input placeholder="&sstarf;" type="text" name="author"
 					value="<?php print(htmlentities($book->getAuthor(), ENT_QUOTES, "UTF-8"))?>">
    <?php
 			print ("<span class='err'> " . $book->getError ( $authorerror ) . "</span>") ;
@@ -98,7 +98,7 @@ if (isset ( $_POST ["bookit"] )) {
 </p>
 			<p>
 				<label class="tooltip"><span class="tooltiptext">Which genre does
-						this book belong to?</span>Genre</label> <input type="text"
+						this book belong to?</span>Genre<small class="right">&ImaginaryI;</small></label> <input placeholder="&sstarf;" type="text"
 					name="genre"
 					value="<?php print(htmlentities($book->getGenre(), ENT_QUOTES, "UTF-8"))?>">
     
@@ -109,8 +109,8 @@ if (isset ( $_POST ["bookit"] )) {
 
 			<p>
 				<label class="tooltip"><span class="tooltiptext">An email address,
-						in case we need to contact you</span>Email</label> <input
-					type="text" name="contactemail"
+						in case we need to contact you</span>Email<small class="right">&ImaginaryI;</small></label> <input
+					placeholder="&sstarf;" type="text" name="contactemail"
 					value="<?php print(htmlentities($book->getContactEmail(), ENT_QUOTES, "UTF-8"))?>">
     
        <?php
@@ -120,7 +120,7 @@ if (isset ( $_POST ["bookit"] )) {
 
 		<p>
 				<label class="tooltip"><span class="tooltiptext">When do you want your book published?
-						</span>Publication date</label> <input type="text" name="publicationdate"
+						</span>Publication date<small class="right">&ImaginaryI;</small></label> <input type="text" placeholder="&sstarf;" name="publicationdate"
 					value="<?php print(htmlentities($book->getPublicationDate(), ENT_QUOTES, "UTF-8"))?>">
 
      <?php
@@ -131,7 +131,7 @@ if (isset ( $_POST ["bookit"] )) {
 
 			<p>
 				<label class="tooltip"><span class="tooltiptext">A short summary of
-						the book</span>Synopsis</label>
+						the book</span>Synopsis<small class="right">&ImaginaryI;</small></label>
 				<textarea type="text" style="margin-bottom: 1em" name="synopsis"><?php print(htmlentities($book->getSynopsis(), ENT_QUOTES, "UTF-8"))?></textarea>
     
        <?php

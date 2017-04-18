@@ -61,6 +61,9 @@ class Book {
 	public function getTitle() {
 		return $this->title;
 	}
+	
+	//Tarkistaa, ettei syöte sisällä ääkkösiä, erikoismerkkejä ja tiettyjä kirosanoja
+	
 	public function checkTitle($required = true, $min = 1, $max = 40) {
 		
 		foreach ( self::$expletives as $word ) {
@@ -89,7 +92,10 @@ class Book {
 	public function getAuthor() {
 		return $this->author;
 	}
-	public function checkAuthor($required = true, $min = 1, $max = 40) {
+	
+	//Tarkistaa, ettei syöte sisällä ääkkösiä, erikoismerkkejä, tiettyjä kirosanoja ja on alle 40 merkkiä pitkä
+	
+	public function checkAuthor($required = true, $max = 40) {
 		
 		foreach ( self::$expletives as $word ) {
 			preg_match ( "#\b" . $word . "\b#", mb_strtolower($_POST ['author']), $matches );
@@ -117,6 +123,9 @@ class Book {
 	public function getGenre() {
 		return $this->genre;
 	}
+	
+	//Tarkistaa, että syöte vastaa yhtä valideista genreistä. "Tosielämässä" toteutettaisiin esim dropdown-valikolla
+	
 	public function checkGenre() {
 		if (in_array(mb_strtolower($_POST ['genre']), self::$genres)){
 				return 0;
@@ -132,6 +141,8 @@ class Book {
 	public function getPublicationDate() {
 		return $this->publicationdate;
 	}
+	
+	//Tarkistaa, että pvm on oikeassa muodossa, on validi (ei esim 99.09.9999) eikä ole menneisyydessä
 	
 	public function checkPublicationDate(){
 	
@@ -165,6 +176,9 @@ class Book {
 	public function getSynopsis(){ 
 		return $this->synopsis;
 	}
+	
+	//Tarkistaa, ettei syöte sisällä ääkkösiä, erikoismerkkejä, tiettyjä kirosanoja ja on korkeintaan 200 merkkiä
+	
 	public function checkSynopsis($max = 200) {
 		
 		foreach ( self::$expletives as $word ) {
@@ -193,14 +207,9 @@ class Book {
 	public function getContactEmail() {
 		return $this->contactemail;
 	}
-	public function checkContactEmail($required = true, $min = 1, $max = 40) {
-		
-		foreach ( self::$expletives as $word ) {
-			preg_match ( "#\b" . $word . "\b#", mb_strtolower($_POST ['contactemail']), $matches );
-		
-			if (! empty ( $matches ))
-				return 5;
-		}
+	
+	//Tarkistaa, ettei syöte on validi email (tuon filtterin avulla) ja ettei se ole yli 40 merkkiä pitkä
+	public function checkContactEmail($required = true, $max = 40) {
 		
 		if (strlen ( $this->contactemail ) > $max) {
 			return 3;

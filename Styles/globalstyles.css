@@ -1,0 +1,182 @@
+@CHARSET "UTF-8";
+
+*{
+	font-family: 'Handlee', cursive;
+}
+
+a{
+	border-radius:0.5em;
+	background:#ff8080;
+	color:white;
+	padding:0.5em;
+	text-decoration: none;
+	text-align:center;
+	display:block;
+}
+
+nav.subnav >li > a{
+	display:inline;
+}
+
+
+li.stack{
+	display:block;
+	margin-top:1.5em;
+	margin-bottom:1.5em;
+}
+
+li.stack > a {width:50%;margin:auto;}
+
+
+a.arrow:hover:after{
+	content:"  \27BA";
+	color:white;
+}
+
+
+body{
+	background-image:url('../Images/bookbinding.jpg');
+}
+
+button{
+	background:white;
+	padding:0.5em;
+	border-radius:0.5em;
+	cursor:pointer;
+}
+
+#submit:hover{
+	font-size:1em;
+	background:#66ff66;
+}
+
+header{
+	margin:1em 0 1em 0;
+	height:75px;
+	text-align:center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color:white;
+}
+
+
+li{
+	list-style-type: none;
+	display:inline;
+}
+
+
+small {
+	color:#ff8080;
+}
+
+/*CSS for form*/
+label{
+    display: inline-block;
+    width:100%;
+    text-align: left;
+    float:left;
+}
+input, textarea {
+  display: inline-block;
+  float: left;
+  width:100%;
+}
+
+form {
+	color:white;
+}
+
+
+/*CSS for tooltip*/
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    
+    position: absolute;
+    z-index: 1;
+   float:left;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: hidden;
+}
+
+/*CSS styles for errors */
+.err{
+	color:orange;
+	padding-left:1em;
+}
+
+.success{
+	color:#66ff66;
+}
+
+
+
+
+.main{
+	background-color: rgba(0,0,0,0.65);
+	margin:auto;
+	width:100%;
+	min-height:90%;
+	overflow:auto;
+	padding:1em;
+}
+
+
+.glowhome:hover {
+	box-shadow: 0px 0px 25px 5px white;
+	color:white;
+}
+
+.half {
+	width:100%;
+	padding:5%;
+	text-align:center;
+}
+
+.mediimg{width:70%;}
+
+.padtop1{padding-top:1em;}
+
+@media (min-width:590px){
+	.half{
+	width:40%;
+	float:left;
+	}
+	.main{width:70%;}
+	header{
+	text-align:left;
+	padding-left:1em;
+	}
+	.mediimg{width:100%;}
+	.landingnav{margin-top:20%;}
+	li.stack > a{
+	margin:auto;
+	}
+	.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+label{width:15%;}
+input,textarea{width:25%;}
+}
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
 require_once "book.php";
 
-if (isset ( $_POST ["bookit"] )) {
+if (isset ( $_POST ["bookit"])) {
 	$book = new Book ( $_POST ["title"], $_POST ["author"], $_POST ["genre"], $_POST ["synopsis"], $_POST ["contactemail"], $_POST ["publicationdate"] );
 	
 	// Tarkastetaan kentät
@@ -12,7 +12,9 @@ if (isset ( $_POST ["bookit"] )) {
 	$synopsiserror = $book->checkSynopsis ();
 	$publicationdateerror = $book->checkPublicationDate();
 	
-	$successmessage = "";
+	
+	$successmessage = "Your book was successfully submitted!";
+	$haserrors = 0;
 	
 	$errors = array(
 			$titleerror,
@@ -23,12 +25,17 @@ if (isset ( $_POST ["bookit"] )) {
 			$publicationdateerror
 	);
 	
-	if(!in_array(1, $errors)){
-		$successmessage = "Your book was submitted successfully!";
-		$book = new Book();
+	foreach($errors as $error){
+		if($error !== 0){
+			$haserrors = 1;
+			$successmessage = "";
+			break;
+		}
+		
 	}
 	
-} else {
+}else {
+
 	
 	$book = new Book ();
 	
@@ -40,6 +47,7 @@ if (isset ( $_POST ["bookit"] )) {
 	$synopsiserror = 0;
 	
 	$successmessage = "";
+	
 }
 ?>
 
@@ -148,10 +156,11 @@ if (isset ( $_POST ["bookit"] )) {
 			</button>
 			
 			<?php
-							print ("<span class='success'> " . $successmessage . "</span>") ;
+							print ("<div class='success'> " . $successmessage . "</div>") ;
 							?> 
 		</form>
-		
+
+
 
 
 	</div>

@@ -10,11 +10,10 @@ class Book {
 			6 => "&cross; Viable genres are Horror, Fantasy, Thriller, Drama, Romance, Satire and Science.",
 			7 => "&cross; Provide a valid date in the format 'dd.MM.yyyy'.",
 			8 => "&cross; Please enter a valid email address. (ie. johndoe@mail.com)",
-			9 => "&cross; Publication date cannot be in the past."
+			9 => "&cross; Publication date cannot be in the past.",
+			10 => "&cross; Enter an existing date." 
 	
 	);
-		
-	
 	private $title;
 	private $author;
 	private $genre;
@@ -33,7 +32,7 @@ class Book {
 			'ass',
 			'faggot',
 			'dyke',
-			'wanker'
+			'wanker' 
 	);
 	private static $genres = array (
 			'thriller',
@@ -42,19 +41,16 @@ class Book {
 			'drama',
 			'romance',
 			'satire',
-			'science'
+			'science' 
 	);
-	
 	function __construct($title = "", $author = "", $genre = "", $synopsis = "", $contactemail = "", $publicationdate = "") {
 		$this->title = trim ( $title );
 		$this->author = trim ( $author );
 		$this->genre = trim ( $genre );
 		$this->synopsis = trim ( $synopsis );
 		$this->contactemail = trim ( $contactemail );
-		$this->publicationdate = trim ($publicationdate );
+		$this->publicationdate = trim ( $publicationdate );
 	}
-	
-	
 	public function setTitle($title) {
 		$this->title = trim ( $title );
 	}
@@ -62,12 +58,10 @@ class Book {
 		return $this->title;
 	}
 	
-	//Tarkistaa, ettei syöte sisällä ääkkösiä, erikoismerkkejä ja tiettyjä kirosanoja
-	
+	// Tarkistaa, ettei syöte sisällä ääkkösiä, erikoismerkkejä ja tiettyjä kirosanoja
 	public function checkTitle($required = true, $min = 1, $max = 40) {
-		
 		foreach ( self::$expletives as $word ) {
-			preg_match ( "#\b" . $word . "\b#",  mb_strtolower($_POST['title']), $matches );
+			preg_match ( "#\b" . $word . "\b#", mb_strtolower ( $_POST ['title'] ), $matches );
 			if (! empty ( $matches ))
 				return 5;
 		}
@@ -82,9 +76,10 @@ class Book {
 		
 		if (strlen ( $this->title ) > $max) {
 			return 3;
+		} 
+		else {
+			return 0;
 		}
-		
-		else{return 0;}
 	}
 	public function setAuthor($author) {
 		$this->author = trim ( $author );
@@ -93,13 +88,11 @@ class Book {
 		return $this->author;
 	}
 	
-	//Tarkistaa, ettei syöte sisällä ääkkösiä, erikoismerkkejä, tiettyjä kirosanoja ja on alle 40 merkkiä pitkä
-	
+	// Tarkistaa, ettei syöte sisällä ääkkösiä, erikoismerkkejä, tiettyjä kirosanoja ja on alle 40 merkkiä pitkä
 	public function checkAuthor($required = true, $max = 40) {
-		
 		foreach ( self::$expletives as $word ) {
-			preg_match ( "#\b" . $word . "\b#", mb_strtolower($_POST ['author']), $matches );
-		
+			preg_match ( "#\b" . $word . "\b#", mb_strtolower ( $_POST ['author'] ), $matches );
+			
 			if (! empty ( $matches ))
 				return 5;
 		}
@@ -114,8 +107,9 @@ class Book {
 		
 		if (preg_match ( "/[Ã¶Ã¥Ã¤\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:\<\>,\.\?]/i", $this->author )) {
 			return 4;
+		} else {
+			return 0;
 		}
-		else{return 0;}
 	}
 	public function setGenre($genre) {
 		$this->genre = trim ( $genre );
@@ -124,17 +118,14 @@ class Book {
 		return $this->genre;
 	}
 	
-	//Tarkistaa, että syöte vastaa yhtä valideista genreistä. "Tosielämässä" toteutettaisiin esim dropdown-valikolla
-	
+	// Tarkistaa, että syöte vastaa yhtä valideista genreistä. "Tosielämässä" toteutettaisiin esim dropdown-valikolla
 	public function checkGenre() {
-		if (in_array(mb_strtolower($_POST ['genre']), self::$genres)){
-				return 0;
-		}else{
-					return 6;
-				}
-		
+		if (in_array ( mb_strtolower ( $_POST ['genre'] ), self::$genres )) {
+			return 0;
+		} else {
+			return 6;
+		}
 	}
-	
 	public function setPublicationDate($publicationdate) {
 		$this->publicationdate = trim ( $publicationdate );
 	}
@@ -142,47 +133,42 @@ class Book {
 		return $this->publicationdate;
 	}
 	
-	//Tarkistaa, että pvm on oikeassa muodossa, on validi (ei esim 99.09.9999) eikä ole menneisyydessä
-	
-	public function checkPublicationDate(){
-	
-		
-		if(!preg_match("^[0-3][0-9].[0-1][0-9].[0-9]{4}$^", $_POST['publicationdate'])){
+	// Tarkistaa, että pvm on oikeassa muodossa, on validi (ei esim 99.09.9999) eikä ole menneisyydessä
+	public function checkPublicationDate() {
+		if (! preg_match ( "^[0-3]{1}[0-9]{1}.[0-1]{1}[0-9]{1}.[0-9]{4}$^", $_POST ['publicationdate'] )) {
 			return 7;
 		}
 		
+		// Date_parse ei toimi, jos päivä on suurempi kuin 31. Päivä täytyy ottaa talteen manuaalisesti.
 		
-		$date = date_parse($_POST['publicationdate']);
+		$day = substr ( $_POST ['publicationdate'], 0, 2 );
+		$datearray = date_parse ( $_POST ['publicationdate'] );
 		
-		if (!checkdate($date['month'], $date['day'], $date['year'])) {
-			return 7;
+		if (! checkdate ( $datearray ['month'], $day, $datearray ['year'] )) {
+			return 10;
 		}
 		
-		$currentdate=date_create();		
-		$pubdate = date_create_from_format('d.m.Y', $_POST['publicationdate']);		
+		$currentdate = date_create ();
+		$pubdate = date_create_from_format ( 'd.m.Y', $_POST ['publicationdate'] );
 		
-		if($currentdate -> getTimestamp() > $pubdate -> getTimestamp()){
+		if ($currentdate->getTimestamp () > $pubdate->getTimestamp ()) {
 			return 9;
+		} 
+		else {
+			return 0;
 		}
-		
-		else{return 0;}
-		
 	}
-	
 	public function setSynopsis($synopsis) {
 		$this->synopsis = trim ( $synopsis );
 	}
-	
-	public function getSynopsis(){ 
+	public function getSynopsis() {
 		return $this->synopsis;
 	}
 	
-	//Tarkistaa, ettei syöte sisällä ääkkösiä, erikoismerkkejä, tiettyjä kirosanoja ja on korkeintaan 200 merkkiä
-	
+	// Tarkistaa, ettei syöte sisällä ääkkösiä, erikoismerkkejä, tiettyjä kirosanoja ja on korkeintaan 200 merkkiä
 	public function checkSynopsis($max = 200) {
-		
 		foreach ( self::$expletives as $word ) {
-			preg_match ( "#\b" . $word . "\b#", mb_strtolower($_POST ['synopsis']), $matches );
+			preg_match ( "#\b" . $word . "\b#", mb_strtolower ( $_POST ['synopsis'] ), $matches );
 			if (! empty ( $matches ))
 				return 5;
 		}
@@ -193,13 +179,10 @@ class Book {
 		
 		if (preg_match ( "/[Ã¶Ã¥Ã¤\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:\<\>,\.\?]/i", $this->synopsis )) {
 			return 4;
-		}
-		
-		else{
+		} 
+		else {
 			return 0;
 		}
-		
-	
 	}
 	public function setContactEmail($contactemail) {
 		$this->contactemail = trim ( $contactemail );
@@ -208,25 +191,22 @@ class Book {
 		return $this->contactemail;
 	}
 	
-	//Tarkistaa, ettei syöte on validi email (tuon filtterin avulla) ja ettei se ole yli 40 merkkiä pitkä
+	// Tarkistaa, ettei syöte on validi email (tuon filtterin avulla) ja ettei se ole yli 40 merkkiä pitkä
 	public function checkContactEmail($required = true, $max = 40) {
-		
 		if (strlen ( $this->contactemail ) > $max) {
 			return 3;
 		}
 		
-		if(!filter_var($_POST['contactemail'], FILTER_VALIDATE_EMAIL)){
+		if (! filter_var ( $_POST ['contactemail'], FILTER_VALIDATE_EMAIL )) {
 			return 8;
+		} 
+		else {
+			return 0;
 		}
-		
-		else{return 0;}
-		
 	}
 	public function getError($errorcode) {
-		
-		if (isset ( self::$errorlist [$errorcode] ))		
+		if (isset ( self::$errorlist [$errorcode] ))
 			return self::$errorlist [$errorcode];
-		
 	}
 }
 ?>

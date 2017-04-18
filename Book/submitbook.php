@@ -151,6 +151,8 @@ if (isset ( $_POST ["bookit"] )) {
 							print ("<span class='success'> " . $successmessage . "</span>") ;
 							?> 
 		</form>
+		
+
 
 	</div>
 </body>

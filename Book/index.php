@@ -29,7 +29,8 @@
 <div class="half">
 <figure style="color:white">
 <img class="mediimg" src="../Images/oldreadcropped.png" alt="Time spent reading is time well spent." >
-<figcaption style="padding-top:0.5em">Time spent reading is time well spent.</figcaption>
+<figcaption style="padding-top:0.5em">“The books that the world calls immoral are books that show the world its own shame.” 
+<br>― Oscar Wilde, The Picture of Dorian Gray</figcaption>
 </figure>
 </div>
 </div>

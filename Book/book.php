@@ -8,8 +8,9 @@ class Book {
 			4 => "&cross; This field cannot contain Nordic letters or special characters.",
 			5 => "&cross; Expletives are disallowed.",
 			6 => "&cross; Viable genres are Horror, Fantasy, Thriller, Drama, Romance, Satire and Science.",
-			7 => "&cross; Enter date in the format of 'dd.MM.yyyy'.",
-			8 => "&cross; Please enter a valid email address."
+			7 => "&cross; Provide a valid date in the format 'dd.MM.yyyy'.",
+			8 => "&cross; Please enter a valid email address. (ie. johndoe@mail.com)",
+			9 => "&cross; Publication date cannot be in the past."
 	
 	);
 		
@@ -134,8 +135,23 @@ class Book {
 	
 	public function checkPublicationDate(){
 	
+		
 		if(!preg_match("^[0-3][0-9].[0-1][0-9].[0-9]{4}$^", $_POST['publicationdate'])){
 			return 7;
+		}
+		
+		
+		$date = date_parse($_POST['publicationdate']);
+		
+		if (!checkdate($date['month'], $date['day'], $date['year'])) {
+			return 7;
+		}
+		
+		$currentdate=date_create();		
+		$pubdate = date_create_from_format('d.m.Y', $_POST['publicationdate']);		
+		
+		if($currentdate -> getTimestamp() > $pubdate -> getTimestamp()){
+			return 9;
 		}
 		
 		else{return 0;}
@@ -190,7 +206,7 @@ class Book {
 			return 3;
 		}
 		
-		if(!preg_match("^@{1}+.{1,3}^", $_POST['contactemail'])){
+		if(!filter_var($_POST['contactemail'], FILTER_VALIDATE_EMAIL)){
 			return 8;
 		}
 		

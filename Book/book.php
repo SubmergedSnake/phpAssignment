@@ -14,6 +14,11 @@ class Book {
 			10 => "&cross; Enter an existing date." 
 	
 	);
+	
+	public static function getErrorList() {
+		return self::$errorlist;
+	}
+	
 	private $title;
 	private $author;
 	private $genre;

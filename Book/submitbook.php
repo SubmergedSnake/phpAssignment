@@ -1,6 +1,7 @@
 <?php
 require_once "book.php";
 
+
 if (isset ( $_POST ["bookit"])) {
 	$book = new Book ( $_POST ["title"], $_POST ["author"], $_POST ["genre"], $_POST ["synopsis"], $_POST ["contactemail"], $_POST ["publicationdate"] );
 	
@@ -12,8 +13,8 @@ if (isset ( $_POST ["bookit"])) {
 	$synopsiserror = $book->checkSynopsis ();
 	$publicationdateerror = $book->checkPublicationDate();
 	
+	$successmessage = "";
 	
-	$successmessage = "Your book was successfully submitted!";
 	$haserrors = 0;
 	
 	$errors = array(
@@ -25,14 +26,16 @@ if (isset ( $_POST ["bookit"])) {
 			$publicationdateerror
 	);
 	
+	$haserrors;
 	foreach($errors as $error){
-		if($error !== 0){
-			$haserrors = 1;
-			$successmessage = "";
-			break;
-		}
-		
+		$haserrors += $error;
 	}
+	
+	if($haserrors == 000000){
+		$successmessage = "Your book was submitted successfully!";
+		$book = new Book();
+	}
+	
 	
 }else {
 
@@ -159,6 +162,7 @@ if (isset ( $_POST ["bookit"])) {
 							print ("<div class='success'> " . $successmessage . "</div>") ;
 							?> 
 		</form>
+
 
 
 

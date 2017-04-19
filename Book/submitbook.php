@@ -49,8 +49,11 @@ if (isset ( $_POST ["bookit"])) {
 	
 }else {
 
-	
-	$book = new Book ();
+	if (isset($_SESSION["book"])) {
+		$book = $_SESSION["book"];
+	} else {
+		$book = new Book();
+	}
 	
 	$titleerror = 0;
 	$authorerror = 0;
@@ -59,7 +62,6 @@ if (isset ( $_POST ["bookit"])) {
 	$publicationdateerror = 0;
 	$synopsiserror = 0;
 	
-	$successmessage = "";
 	
 }
 ?>
@@ -166,10 +168,11 @@ if (isset ( $_POST ["bookit"])) {
  
  <div >
 			<button type="submit" id="submit" name="bookit">
-				Submit your book <i class="fa fa-book" aria-hidden="true"></i>
+			<i class="fa fa-book" aria-hidden="true"></i>
+				Publish...
 			</button>
 			
-			<button type="submit" id="cancel" name="cancel">Cancel <i class="fa fa-ban" aria-hidden="true"></i></button>
+			<button type="submit" id="cancel" name="cancel"><i class="fa fa-ban" aria-hidden="true"></i> Cancel </button>
 			</div>
 		
 		</form>

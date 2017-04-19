@@ -182,7 +182,7 @@ class Book {
 			return 3;
 		}
 		
-		if (preg_match ( "/[öåä\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:\<\>,\.\?]/i", $this->synopsis )) {
+		if (preg_match ( "/[öåä\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:\<\>\?]/i", $this->synopsis )) {
 			return 4;
 		} 
 		else {

@@ -1,13 +1,19 @@
-<?php
 
-?>
-
-<?php
-
-?>
 
 <?php
 require_once "book.php";
+session_start();
+
+if (isset($_SESSION["book"])) {
+	$book = $_SESSION["book"];
+} 
+
+if(isset($_POST["savetodb"])) {
+	unset($_SESSION["book"]);
+	header("location: index.php");
+	exit;
+}
+
 ?>
 
 <html>
@@ -31,14 +37,30 @@ require_once "book.php";
 			<h2>
 				Book details <small><i class="fa fa-info-circle" aria-hidden="true"></i></small>
 			</h2>
-			<nav class="subnav">
-				<li><a class="arrow" href="submitbook.php " class="nav">Submit a new book</i></a></li>
-				<li><a class="arrow" href="allbooks.php " class="nav">All books</a></li>
-				<li><a class="arrow" href="settings.php " class="nav">Settings</a></li>
-
-			</nav>
+			
 		</header>
 
+<div class="halfleft">
+<form action="bookdetails.php" method="POST">
+<h3>Please review your details.</h3>
+<?php
+print("<p><strong>Title</strong> &zigrarr; "."<span class='err'>".$book->getTitle()."</span>"."</p>");
+print("<p><strong>Author</strong> &zigrarr; "."<span class='err'>".$book->getAuthor()."</span>"."</p>");
+print("<p><strong>Genre</strong> &zigrarr; "."<span class='err'>".$book->getGenre()."</span>"."</p>");
+print("<p><strong>Publication date</strong> &zigrarr; "."<span class='err'>".$book->getPublicationDate()."</span>"."</p>");
+print("<p><strong>Contact email</strong> &zigrarr; "."<span class='err'>".$book->getContactEmail()."</span>"."</p>");
+print("<p><strong>Synopsis</strong> &zigrarr; "."<span class='err'>".$book->getSynopsis()."</span>"."</p>");
+?>
+
+ <div style="padding-top:1em" >
+			<button type="submit" id="publish" name="savetodb">
+				<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Confirm 
+			</button>
+			
+			<button type="submit" id="revise" name="revise"><i class="fa fa-sliders" aria-hidden="true"></i> Revise </button>
+			</div>
+</div>
+</form>
 
 	</div>
 </body>

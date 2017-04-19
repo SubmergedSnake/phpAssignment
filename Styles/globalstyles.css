@@ -39,21 +39,21 @@ button{
 	cursor:pointer;
 }
 
-#submit{float:left;margin-left:1em;}
+#submit, #cancel{float:left;margin-left:1em;}
+#submit, #publish{background:#66ff66;}
+#cancel{background:#ff8080;}
 
-#cancel{float:left;margin-left:1em;}
+#submit:hover, #publish:hover{font-size:1em;}
 
-#submit:hover{
+#cancel:hover{font-size:1em;}
+
+#revise:hover{
 	font-size:1em;
-	background:#66ff66;
-
 }
 
-#cancel:hover{
-	font-size:1em;
-	background:#ff8080;
-
-}
+#revise{background:orange;}
+#revise, #publish{float:left;margin-left:1em;}
+#revise{background:background:orange;}
 
 header{
 	margin:1em 0 1em 0;
@@ -151,6 +151,11 @@ form {color:white;margin-bottom:3em;}
 	width:100%;
 	padding:5%;
 	text-align:center;
+}
+
+.halfleft{
+	text-align:left;
+	padding:1.5em;
 }
 
 .mediimg{width:70%;}

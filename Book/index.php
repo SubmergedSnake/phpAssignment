@@ -20,9 +20,9 @@
 
 <div class="half">
 <nav class="landingnav">
-<li class="stack"><a class="arrow" href="submitbook.php">Submit a new book</i></a></li>
-<li class="stack"><a class="arrow" href=" " >All books</a></li>
-<li class="stack"><a class="arrow" href=" " >Settings</a></li>
+<li class="stack"><a class="arrow" href="submitbook.php"><i class="fa fa-book" aria-hidden="true"></i> Submit a new book</a></li>
+<li class="stack"><a class="arrow" href="allbooks.php" ><i class="fa fa-database" aria-hidden="true"></i> All books</a></li>
+<li class="stack"><a class="arrow" href="settings.php " ><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
 </nav>
 </div>
 

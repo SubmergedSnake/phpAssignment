@@ -1,5 +1,6 @@
 <?php
 require_once "book.php";
+session_start();
 
 
 if (isset ( $_POST ["bookit"])) {
@@ -32,10 +33,19 @@ if (isset ( $_POST ["bookit"])) {
 	}
 	
 	if($haserrors == 000000){
-		$successmessage = "Your book was submitted successfully!";
-		$book = new Book();
+		
+		$_SESSION["book"] = $book;
+		session_write_close();
+		header("location: bookdetails.php");
+		exit;
+		
 	}
 	
+	
+}elseif (isset($_POST["cancel"])) {
+	unset($_SESSION["book"]);
+	header("location: index.php");
+	exit;
 	
 }else {
 
@@ -74,12 +84,12 @@ if (isset ( $_POST ["bookit"])) {
 			class="fa fa-home" aria-hidden="true"></i></a>
 		<header>
 			<h2>
-				Submit a new book<br> <small> ...and claim authorship</small>
+				Submit a new book <small> <i class="fa fa-book" aria-hidden="true"></i></small>
 			</h2>
 			<nav class="subnav">
-				<li><a class="arrow" href=" " class="nav">Submit a new book</i></a></li>
-				<li><a class="arrow" href=" " class="nav">All books</a></li>
-				<li><a class="arrow" href=" " class="nav">Settings</a></li>
+				<li><a class="arrow" href="submitbook.php " class="nav">Submit a new book</i></a></li>
+				<li><a class="arrow" href="allbooks.php " class="nav">All books</a></li>
+				<li><a class="arrow" href="settings.php " class="nav">Settings</a></li>
 
 			</nav>
 		</header>
@@ -153,14 +163,15 @@ if (isset ( $_POST ["bookit"])) {
 
 			<div style="clear: both;"></div>
 			<br>
-
+ 
+ <div >
 			<button type="submit" id="submit" name="bookit">
 				Submit your book <i class="fa fa-book" aria-hidden="true"></i>
 			</button>
 			
-			<?php
-							print ("<div class='success'> " . $successmessage . "</div>") ;
-							?> 
+			<button type="submit" id="cancel" name="cancel">Cancel <i class="fa fa-ban" aria-hidden="true"></i></button>
+			</div>
+		
 		</form>
 
 

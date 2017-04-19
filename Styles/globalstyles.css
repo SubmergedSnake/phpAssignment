@@ -39,14 +39,19 @@ button{
 	cursor:pointer;
 }
 
-#submit{
-	position:absolute;
-	z-index:1;
-}
+#submit{float:left;margin-left:1em;}
+
+#cancel{float:left;margin-left:1em;}
 
 #submit:hover{
 	font-size:1em;
 	background:#66ff66;
+
+}
+
+#cancel:hover{
+	font-size:1em;
+	background:#ff8080;
 
 }
 
@@ -133,6 +138,7 @@ form {color:white;margin-bottom:3em;}
 	min-height:90%;
 	overflow:auto;
 	padding:1em;
+	color:white;
 }
 
 

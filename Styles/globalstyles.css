@@ -12,6 +12,8 @@ a{
 	display:block;
 }
 
+body,html{height:100%;}
+
 nav.subnav >li > a{display:inline;}
 
 
@@ -33,27 +35,18 @@ a.arrow:hover:after{
 body{background-image:url('../Images/bookbinding.jpg');}
 
 button{
-	background:white;
 	padding:0.5em;
 	border-radius:0.5em;
 	cursor:pointer;
+	border:none;
 }
 
-#submit, #cancel{float:left;margin-left:1em;}
-#submit, #publish{background:#66ff66;}
-#cancel{background:#ff8080;}
-
-#submit:hover, #publish:hover{font-size:1em;}
-
-#cancel:hover{font-size:1em;}
-
-#revise:hover{
-	font-size:1em;
-}
-
-#revise{background:orange;}
-#revise, #publish{float:left;margin-left:1em;}
-#revise{background:background:orange;}
+.submit{float:left;margin-left:1em;color:white;background:#00ff00;font-size:1em;}
+.submit:hover{padding:1em;}
+.cancel{float:left;margin-left:1em;color:white;font-size:1em;background:#ff8080;}
+.cancel:hover{padding:1em;}
+.revise{background:orange;float:left;margin-left:1em;color:white;font-size:1em;}
+.revise:hover{padding:1em;}
 
 header{
 	margin:1em 0 1em 0;
@@ -126,19 +119,16 @@ form {color:white;margin-bottom:3em;}
 	padding-left:1em;
 }
 
-.success{color:#66ff66;padding-top:3em;}
-
-
-
 
 .main{
 	background-color: rgba(0,0,0,0.65);
 	margin:auto;
 	width:100%;
-	min-height:90%;
+	/*min-height:90%;*/
 	overflow:auto;
 	padding:1em;
 	color:white;
+	margin-bottom:0 !important;
 }
 
 
@@ -178,6 +168,38 @@ form {color:white;margin-bottom:3em;}
 	.tooltip:hover .tooltiptext {visibility: visible;}
 label{width:15%;}
 input,textarea{width:25%;}
+}
+
+#success{
+	z-index:5;
+	padding:3em;
+	width:20%;
+	height:10%;
+	margin: auto;
+  position: absolute;
+  display:none;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background:rgba(0,0,0,0.4);
+  border-radius:0.4em;
+ 
+}
+
+footer{
+	position:fixed;
+	bottom:0;
+	width:100%;
+	height:42px;
+	text-align:center;
+}
+
+#user{
+
+	background:orange;
+	border-radius:0.7em 0.7em 0 0;
+	width:165px;
+	margin-left:auto;
+	margin-right:auto;
+	
 }
 
 

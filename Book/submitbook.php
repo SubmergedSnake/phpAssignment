@@ -167,12 +167,12 @@ if (isset ( $_POST ["bookit"])) {
 			<br>
  
  <div >
-			<button type="submit" id="submit" name="bookit">
+			<button type="submit" class="submit" name="bookit">
 			<i class="fa fa-book" aria-hidden="true"></i>
 				Publish...
 			</button>
 			
-			<button type="submit" id="cancel" name="cancel"><i class="fa fa-ban" aria-hidden="true"></i> Cancel </button>
+			<button type="submit" class="cancel" name="cancel"><i class="fa fa-ban" aria-hidden="true"></i> Cancel </button>
 			</div>
 		
 		</form>

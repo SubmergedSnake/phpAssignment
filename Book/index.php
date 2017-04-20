@@ -20,11 +20,14 @@ unset($_SESSION["book"]);
 
 <header><h1>The Fine Print&trade;<br><small style="margin-left:2em;">&zigrarr; book depository</small></h1></header>
 
+
+
 <div class="half">
 <nav class="landingnav">
 <li class="stack"><a class="arrow" href="submitbook.php"><i class="fa fa-book" aria-hidden="true"></i> Submit a new book</a></li>
 <li class="stack"><a class="arrow" href="allbooks.php" ><i class="fa fa-database" aria-hidden="true"></i> All books</a></li>
-<li class="stack"><a class="arrow" href="settings.php " ><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
+<li class="stack"><a class="arrow" href="settings.php " ><i class="fa fa-sliders" aria-hidden="true"></i> Settings</a></li>
+
 </nav>
 </div>
 
@@ -36,5 +39,17 @@ unset($_SESSION["book"]);
 </figure>
 </div>
 </div>
+
+<footer>
+<h4 id="user">
+<i class="fa fa-user" aria-hidden="true"></i>
+<?php
+
+if (isset($_COOKIE["username"])) {
+ print($_COOKIE["username"]);
+}
+?>
+</h4></footer>
+
 </body>
 </html>

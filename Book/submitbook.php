@@ -97,7 +97,7 @@ if (isset ( $_POST ["bookit"])) {
 		</header>
 
 
-		<form action="submitbook.php" method="POST" class="padtop1">
+		<form action="submitbook.php" method="POST" class="padtop1" autocomplete="off">
 			<h3>
 				<small>&rarrhk; </small>Enter details for your book submission
 			</h3>

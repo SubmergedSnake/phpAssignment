@@ -47,7 +47,7 @@ else{
 			class="fa fa-home" aria-hidden="true"></i></a>
 		<header>
 			<h2>
-				Settings <small><i class="fa fa-wrench" aria-hidden="true"></i></small>
+				Settings <small><i class="fa fa-sliders" aria-hidden="true"></i></small>
 			</h2>
 			<nav class="subnav">
 				<li><a class="arrow" href="submitbook.php " class="nav">Submit a new book</i></a></li>
@@ -60,7 +60,7 @@ else{
 <div class="half">
 <form action="settings.php" method="POST">
 <label for="username" style="width:100%;margin-bottom:1em;">Supply a user name</label>
-<input type="text" name="username" value="" ><button type="submit" name="insertuser" style="float:left;margin-left:0.5em;padding:0.3em;background:#00ff00"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
+<input type="text" name="username" value="<?php print($_COOKIE['username'])?>" ><button type="submit" name="insertuser" style="float:left;margin-left:0.5em;padding:0.3em;background:#00ff00">Go <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
 <?php
 					print ("<div class='err'> " . $user->getUserError ($usererror ) . "</div>") ;
 					?> 

@@ -17,8 +17,7 @@ require_once "book.php";
 </head>
 <body>
 	<div class="main">
-		<a href="/Eta1/Book" style="float: right;" class="glowhome"><i
-			class="fa fa-home" aria-hidden="true"></i></a>
+		
 		<header>
 			<h2>
 				All books <small><i class="fa fa-database" aria-hidden="true"></i></small>
@@ -34,16 +33,48 @@ require_once "book.php";
 
 	</div>
 	
-	<footer>
-<h4 id="user">
-<i class="fa fa-user" aria-hidden="true"></i>
+	
+	
+	<div id="user">
+	<a href="/Eta1/Book" class="glowhome"><i
+			class="fa fa-home" aria-hidden="true"></i></a>
+			<p id="pipe">&verbar;</p>
+			
+<h4 id="cookiename" >
+
+  
+  
+ 
 <?php
 
 if (isset($_COOKIE["username"])) {
- print($_COOKIE["username"]);
+ $usernames = explode(" ", $_COOKIE["username"]);
+ print($usernames[0]);
 }
 ?>
-</h4></footer>
+
+<span id="usertooltip"><?php foreach($usernames as $name){
+print(" " . $name);
+}?></span>
+</h4>
+
+
+
+
+			<div style="clear: both;"></div>
+</div>
+
+
+<script>
+var cookiename = document.getElementById("cookiename");
+cookiename.onmouseover = function showPopup(){
+	document.getElementById("usertooltip").style.display = "block";
+};
+
+cookiename.onmouseleave = function showPopup(){
+	document.getElementById("usertooltip").style.display = "none";
+};
+</script>
 	
 </body>
 </html>

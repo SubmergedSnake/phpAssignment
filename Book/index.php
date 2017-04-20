@@ -38,18 +38,50 @@ unset($_SESSION["book"]);
 <br>― Oscar Wilde, The Picture of Dorian Gray</figcaption>
 </figure>
 </div>
-</div>
 
-<footer>
-<h4 id="user">
-<i class="fa fa-user" aria-hidden="true"></i>
+
+
+	
+	<div id="user">
+	<a href="/Eta1/Book" class="glowhome"><i
+			class="fa fa-home" aria-hidden="true"></i></a>
+			<p id="pipe">&verbar;</p>
+			
+<h4 id="cookiename" >
+
+ 
+  
+  
 <?php
 
 if (isset($_COOKIE["username"])) {
- print($_COOKIE["username"]);
+ $usernames = explode(" ", $_COOKIE["username"]);
+ print($usernames[0]);
 }
 ?>
-</h4></footer>
+
+<span id="usertooltip"><?php foreach($usernames as $name){
+print(" " . $name);
+}?></span>
+</h4>
+
+
+
+
+			<div style="clear: both;"></div>
+</div>
+</div>
+
+		<script>
+var cookiename = document.getElementById("cookiename");
+cookiename.onmouseover = function showPopup(){
+	document.getElementById("usertooltip").style.display = "block";
+};
+
+cookiename.onmouseleave = function showPopup(){
+	document.getElementById("usertooltip").style.display = "none";
+};
+</script>
 
 </body>
 </html>

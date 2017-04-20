@@ -43,8 +43,7 @@ else{
 </head>
 <body>
 	<div class="main">
-		<a href="/Eta1/Book" style="float: right;" class="glowhome"><i
-			class="fa fa-home" aria-hidden="true"></i></a>
+		
 		<header>
 			<h2>
 				Settings <small><i class="fa fa-sliders" aria-hidden="true"></i></small>
@@ -59,8 +58,8 @@ else{
 
 <div class="half">
 <form action="settings.php" method="POST">
-<label for="username" style="width:100%;margin-bottom:1em;">Supply a user name</label>
-<input type="text" name="username" value="<?php print($_COOKIE['username'])?>" ><button type="submit" name="insertuser" style="float:left;margin-left:0.5em;padding:0.3em;background:#00ff00">Go <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
+<label for="username" style="width:100%;margin-bottom:1em;">Enter a user name</label>
+<input type="text" name="username" value="<?php if(isset($_COOKIE['username'])){ print($_COOKIE['username']);}?>" ><button type="submit" name="insertuser" style="float:left;margin-left:0.5em;padding:0.3em;background:#00ff00">Go <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
 <?php
 					print ("<div class='err'> " . $user->getUserError ($usererror ) . "</div>") ;
 					?> 
@@ -72,16 +71,48 @@ else{
 
 	</div>
 	
-	<footer>
-<h4 id="user">
-<i class="fa fa-user" aria-hidden="true"></i>
+	
+	
+	<div id="user">
+	<a href="/Eta1/Book" class="glowhome"><i
+			class="fa fa-home" aria-hidden="true"></i></a>
+			<p id="pipe">&verbar;</p>
+			
+<h4 id="cookiename" >
+
+
+  
+ 
 <?php
 
 if (isset($_COOKIE["username"])) {
- print($_COOKIE["username"]);
+ $usernames = explode(" ", $_COOKIE["username"]);
+ print($usernames[0]);
 }
 ?>
-</h4></footer>
+
+<span id="usertooltip"><?php foreach($usernames as $name){
+print(" " . $name);
+}?></span>
+</h4>
+
+
+
+
+			<div style="clear: both;"></div>
+</div>
+
+
+	<script>
+var cookiename = document.getElementById("cookiename");
+cookiename.onmouseover = function showPopup(){
+	document.getElementById("usertooltip").style.display = "block";
+};
+
+cookiename.onmouseleave = function showPopup(){
+	document.getElementById("usertooltip").style.display = "none";
+};
+</script>
 	
 </body>
 </html>

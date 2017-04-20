@@ -33,5 +33,17 @@ require_once "book.php";
 
 
 	</div>
+	
+	<footer>
+<h4 id="user">
+<i class="fa fa-user" aria-hidden="true"></i>
+<?php
+
+if (isset($_COOKIE["username"])) {
+ print($_COOKIE["username"]);
+}
+?>
+</h4></footer>
+	
 </body>
 </html>

@@ -55,7 +55,7 @@ if (isset($_COOKIE["username"])) {
 
 <span id="usertooltip"><span>Full username:</span><?php foreach($usernames as $name){
 print(" " . $name);
-}?><br><span>Logged in since:</span></span>
+}?><br><span>Logged in since: <?php if(isset($_COOKIE['logintime'])){ print ($_COOKIE["logintime"]);}?></span></span>
 </h4>
 
 

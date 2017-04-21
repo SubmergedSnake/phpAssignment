@@ -2,7 +2,7 @@
 <?php
 require_once "user.php";
 
-
+date_default_timezone_set('Europe/Helsinki');
 
 if(isset($_COOKIE["username"])) {
 	$user = $_COOKIE["username"];
@@ -15,7 +15,9 @@ if (isset ( $_POST ["insertuser"])) {
 
 if(empty($usererror)){
 	
+	$currenttime = date("d.m.y H:i");
 	setcookie("username", $user->getUsername(), time()+(86400*7), "/");
+	setcookie("logintime", $currenttime, time()+(86400*7), "/");
 	header("location: index.php");
 	exit;
 
@@ -64,6 +66,8 @@ else{
 <?php
 					print ("<div class='err'> " . $user->getUserError ($usererror ) . "</div>") ;
 					?> 
+					
+					
 </form>
 
 
@@ -94,7 +98,8 @@ if (isset($_COOKIE["username"])) {
 
 <span id="usertooltip"><span>Full username:</span><?php foreach($usernames as $name){
 print(" " . $name);
-}?><br><span>Logged in since:</span></span>
+}?><br><span>Logged in since: <?php if(isset($_COOKIE['logintime'])){ print ($_COOKIE["logintime"]);}?></span></span>
+
 </h4>
 
 

@@ -36,13 +36,15 @@ unset($_SESSION["book"]);
 </nav>
 </div>
 
-<div class="half">
+<div class="half" style="padding-bottom:3.5em">
 <figure style="color:white">
 <img class="mediimg" src="../Images/oldreadcropped.png" alt="Time spent reading is time well spent." >
 <figcaption style="padding-top:0.5em">“The books that the world calls immoral are books that show the world its own shame.” 
 <br>― Oscar Wilde, The Picture of Dorian Gray</figcaption>
 </figure>
 </div>
+
+<div style="clear:left"></div>
 
 
 
@@ -67,13 +69,13 @@ if (isset($_COOKIE["username"])) {
 
 <span id="usertooltip"><span>Full username:</span><?php foreach($usernames as $name){
 print(" " . $name);
-}?><br><span>Logged in since:</span></span>
+}?><br><span>Logged in since: <?php if(isset($_COOKIE['logintime'])){ print ($_COOKIE["logintime"]);}?></span></span>
 </h4>
 
 
 
 
-			<div style="clear: both;"></div>
+			
 </div>
 </div>
 

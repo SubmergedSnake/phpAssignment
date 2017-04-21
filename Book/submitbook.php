@@ -81,7 +81,7 @@ if (isset ( $_POST ["bookit"])) {
 
 </head>
 <body>
-	<div class="main">
+	<div class="main" >
 		
 		<header>
 			<h2>
@@ -96,7 +96,7 @@ if (isset ( $_POST ["bookit"])) {
 		</header>
 
 
-		<form action="submitbook.php" method="POST" class="padtop1 pb3" autocomplete="off">
+		<form action="submitbook.php" method="POST" class="padtop1 pb3" autocomplete="off" style="padding:1em;">
 			<h3>
 				<small>&rarrhk; </small>Enter details for your book submission
 			</h3>
@@ -202,13 +202,13 @@ if (isset($_COOKIE["username"])) {
 
 <span id="usertooltip"><span>Full username:</span><?php foreach($usernames as $name){
 print(" " . $name);
-}?><br><span>Logged in since:</span></span>
+}?><br><span>Logged in since: <?php if(isset($_COOKIE['logintime'])){ print ($_COOKIE["logintime"]);}?></span></span>
 </h4>
 
 
 
 
-			<div style="clear: both;"></div>
+			
 </div>
 	
 <script src="../Jscript/dashboard.js">

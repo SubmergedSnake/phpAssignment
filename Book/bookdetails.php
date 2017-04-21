@@ -93,6 +93,7 @@ print("<p><strong>Synopsis</strong> &zigrarr; "."<span class='err'>".$book->getS
 
 
   
+ 
 <?php
 
 if (isset($_COOKIE["username"])) {
@@ -101,9 +102,9 @@ if (isset($_COOKIE["username"])) {
 }
 ?>
 
-<span id="usertooltip"><?php foreach($usernames as $name){
+<span id="usertooltip"><span>Full username:</span><?php foreach($usernames as $name){
 print(" " . $name);
-}?></span>
+}?><br><span>Logged in since:</span></span>
 </h4>
 
 
@@ -125,15 +126,7 @@ print(" " . $name);
 	}
 	</script>
 	
-	<script>
-var cookiename = document.getElementById("cookiename");
-cookiename.onmouseover = function showPopup(){
-	document.getElementById("usertooltip").style.display = "block";
-};
-
-cookiename.onmouseleave = function showPopup(){
-	document.getElementById("usertooltip").style.display = "none";
-};
+<script src="../Jscript/dashboard.js">
 </script>
 
 </body>

@@ -233,7 +233,6 @@ input,textarea{width:25%;}
 	top:0;
 	left:40%;
 	height:50px;
-	
 	background:rgba(0,0,0,0.4);
 }
 
@@ -267,6 +266,10 @@ input,textarea{width:25%;}
 	
 }
 
+#cookiename:hover{
+	cursor:help;
+}
+
 #pipe{
 	float:left;
 	width:10%;
@@ -277,17 +280,21 @@ input,textarea{width:25%;}
 #usertooltip{
 	position:fixed;
 	left:40%;
-	top:55px;
+	top:50px;
 	display:none;
     width:15%;
     background:rgba(0,0,0,0.4);
     color: white;
-    text-align: center;
+    text-align: left;
     border-radius: 0.7em;
     height:50px;
-    padding-top:0;
-    border-radius:0.7em;
+    padding-top:1em;
+    border-radius:0 0 0.7em 0.7em;
 	
+}
+
+#usertooltip > * {
+	padding-left:0.5em;
 }
 
 

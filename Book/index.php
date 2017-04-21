@@ -6,6 +6,9 @@ unset($_SESSION["book"]);
 
 <html>
 <head>
+
+
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="../Images/favicon.ico" />
@@ -13,6 +16,8 @@ unset($_SESSION["book"]);
 <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
 <link rel="stylesheet" href="../Styles/globalstyles.css">
 <title>The Fine Print</title>
+
+
 
 </head>
 <body>
@@ -49,9 +54,9 @@ unset($_SESSION["book"]);
 			
 <h4 id="cookiename" >
 
+
+  
  
-  
-  
 <?php
 
 if (isset($_COOKIE["username"])) {
@@ -60,9 +65,9 @@ if (isset($_COOKIE["username"])) {
 }
 ?>
 
-<span id="usertooltip"><?php foreach($usernames as $name){
+<span id="usertooltip"><span>Full username:</span><?php foreach($usernames as $name){
 print(" " . $name);
-}?></span>
+}?><br><span>Logged in since:</span></span>
 </h4>
 
 
@@ -72,16 +77,10 @@ print(" " . $name);
 </div>
 </div>
 
-		<script>
-var cookiename = document.getElementById("cookiename");
-cookiename.onmouseover = function showPopup(){
-	document.getElementById("usertooltip").style.display = "block";
-};
-
-cookiename.onmouseleave = function showPopup(){
-	document.getElementById("usertooltip").style.display = "none";
-};
+<script src="../Jscript/dashboard.js">
 </script>
 
 </body>
+
+
 </html>

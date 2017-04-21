@@ -42,7 +42,7 @@ require_once "book.php";
 			
 <h4 id="cookiename" >
 
-  
+
   
  
 <?php
@@ -53,9 +53,9 @@ if (isset($_COOKIE["username"])) {
 }
 ?>
 
-<span id="usertooltip"><?php foreach($usernames as $name){
+<span id="usertooltip"><span>Full username:</span><?php foreach($usernames as $name){
 print(" " . $name);
-}?></span>
+}?><br><span>Logged in since:</span></span>
 </h4>
 
 
@@ -65,15 +65,7 @@ print(" " . $name);
 </div>
 
 
-<script>
-var cookiename = document.getElementById("cookiename");
-cookiename.onmouseover = function showPopup(){
-	document.getElementById("usertooltip").style.display = "block";
-};
-
-cookiename.onmouseleave = function showPopup(){
-	document.getElementById("usertooltip").style.display = "none";
-};
+<script src="../Jscript/dashboard.js">
 </script>
 	
 </body>

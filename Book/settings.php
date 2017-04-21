@@ -38,6 +38,7 @@ else{
 <link href="https://fonts.googleapis.com/css?family=Handlee"
 	rel="stylesheet">
 <link rel="stylesheet" href="../Styles/globalstyles.css">
+
 <title>The Fine Print</title>
 
 </head>
@@ -59,7 +60,7 @@ else{
 <div class="half">
 <form action="settings.php" method="POST">
 <label for="username" style="width:100%;margin-bottom:1em;">Enter a user name</label>
-<input type="text" name="username" value="<?php if(isset($_COOKIE['username'])){ print($_COOKIE['username']);}?>" ><button type="submit" name="insertuser" style="float:left;margin-left:0.5em;padding:0.3em;background:#00ff00">Go <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
+<input type="text" style="width:70%" name="username" value="<?php if(isset($_COOKIE['username'])){ print($_COOKIE['username']);}?>" ><button type="submit" name="insertuser" style="float:left;margin-left:0.5em;padding:0.3em;background:#00ff00">Go <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
 <?php
 					print ("<div class='err'> " . $user->getUserError ($usererror ) . "</div>") ;
 					?> 
@@ -91,9 +92,9 @@ if (isset($_COOKIE["username"])) {
 }
 ?>
 
-<span id="usertooltip"><?php foreach($usernames as $name){
+<span id="usertooltip"><span>Full username:</span><?php foreach($usernames as $name){
 print(" " . $name);
-}?></span>
+}?><br><span>Logged in since:</span></span>
 </h4>
 
 
@@ -102,17 +103,9 @@ print(" " . $name);
 			<div style="clear: both;"></div>
 </div>
 
-
-	<script>
-var cookiename = document.getElementById("cookiename");
-cookiename.onmouseover = function showPopup(){
-	document.getElementById("usertooltip").style.display = "block";
-};
-
-cookiename.onmouseleave = function showPopup(){
-	document.getElementById("usertooltip").style.display = "none";
-};
+<script src="../Jscript/dashboard.js">
 </script>
+
 	
 </body>
 </html>

@@ -61,7 +61,7 @@ else{
 
 <div class="half">
 <form action="settings.php" method="POST">
-<label for="username" style="width:100%;margin-bottom:1em;">Enter a user name</label>
+<h4><label for="username" style="width:100%;margin-bottom:1em;">Supply a username to show in the dashboard</label></h4>
 <input type="text" style="width:70%" name="username" value="<?php if(isset($_COOKIE['username'])){ print($_COOKIE['username']);}?>" ><button type="submit" name="insertuser" style="float:left;margin-left:0.5em;padding:0.3em;background:#00ff00">Go <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
 <?php
 					print ("<div class='err'> " . $user->getUserError ($usererror ) . "</div>") ;
@@ -73,8 +73,8 @@ else{
 
 </div>
 
-
-	</div>
+</div>
+	
 	
 	
 	
@@ -107,6 +107,8 @@ print(" " . $name);
 
 			<div style="clear: both;"></div>
 </div>
+
+
 
 <script src="../Jscript/dashboard.js">
 </script>

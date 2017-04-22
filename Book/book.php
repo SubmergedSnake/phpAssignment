@@ -7,7 +7,7 @@ class Book {
 			3 => "&cross; A maximum of 40 characters are allowed in this field.",
 			4 => "&cross; This field cannot contain Nordic letters or special characters.",
 			5 => "&cross; Expletives are disallowed.",
-			6 => "&cross; Viable genres are Horror, Fantasy, Thriller, Drama, Romance, Satire and Science.",
+			6 => "&cross; Horror, Fantasy, Thriller, Drama, Romance, Satire or Science.",
 			7 => "&cross; Provide a valid date in the format 'dd.MM.yyyy'.",
 			8 => "&cross; Please enter a valid email address. (ie. johndoe@mail.com)",
 			9 => "&cross; Publication date cannot be in the past.",

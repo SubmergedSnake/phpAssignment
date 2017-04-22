@@ -34,6 +34,12 @@ unset($_SESSION["book"]);
 <li class="stack"><a class="arrow" href="settings.php " ><i class="fa fa-sliders" aria-hidden="true"></i> Settings</a></li>
 
 </nav>
+
+<nav class="mobilenav">
+<li class="stack"><a class="arrow" href="submitbook.php"><i class="fa fa-book" aria-hidden="true"></i></a></li>
+<li class="stack"><a class="arrow" href="allbooks.php" ><i class="fa fa-database" aria-hidden="true"></i></a></li>
+<li class="stack"><a class="arrow" href="settings.php " ><i class="fa fa-sliders" aria-hidden="true"></i></a></li>
+</nav>
 </div>
 
 <div class="half" style="padding-bottom:3.5em">
@@ -44,7 +50,7 @@ unset($_SESSION["book"]);
 </figure>
 </div>
 
-<div style="clear:left"></div>
+<div style="clear:both;display:block"></div>
 
 
 

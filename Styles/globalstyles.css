@@ -17,6 +17,17 @@ body,html{height:100%;margin:0;}
 nav.subnav >li > a{display:inline;}
 
 
+.landingnav{
+	display:none;
+}
+
+.mobilenav > li.stack > a {
+	display:inline-block;
+	width:30%;
+}
+
+
+
 li.stack{
 	display:block;
 	margin-top:1.5em;
@@ -68,6 +79,20 @@ li{
 small {color:#ff8080;}
 
 /*CSS for form*/
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(211,211,211,0.9);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: grey;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: grey;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: grey;
+}
+
 label{
     display: inline-block;
     width:100%;
@@ -81,6 +106,9 @@ input, textarea {
   border-radius:0.3em;
 }
 
+
+
+
 input:focus {
     outline: none !important;
     border:1px solid rgba(255, 128, 128, 0.6);
@@ -88,7 +116,7 @@ input:focus {
 
 textarea{height:150px;}
 
-form {color:white;margin-bottom:3em;}
+form {color:white;margin-bottom:0;}
 
 
 /*CSS for tooltip*/
@@ -124,13 +152,11 @@ form {color:white;margin-bottom:3em;}
 
 .main{
 	background-color: rgba(0,0,0,0.65);
-	margin:0;
 	width:100%;
 	color:white;
-	margin-bottom:0 !important;
-	height:100%;
-	overflow-y:auto;
-	overflow-x:hidden;
+	min-height:100%;
+	margin-bottom:0;
+	padding-bottom:3.8em;		
 }
 
 .glowhome{
@@ -144,7 +170,7 @@ form {color:white;margin-bottom:3em;}
 
 
 .half {
-	width:100%;
+	
 	padding:5%;
 	text-align:center;
 	
@@ -175,11 +201,14 @@ form {color:white;margin-bottom:3em;}
  
 }
 
+#success > button:hover{
+	font-size:1.5em;
+}
+
 
 
 #user{
 	background:rgba(0,0,0,0.4);
-	
 	width:100%;
 	position:fixed;
 	bottom:0;
@@ -218,14 +247,12 @@ form {color:white;margin-bottom:3em;}
 	right:0;
 	display:none;
     width:100%;
-    
     background:rgba(0,0,0,0.4);
     color: white;
     text-align: left;
-    border-radius: 0.7em;
+    
     height:50px;
     padding-top:1em;
-    border-radius:0 0 0.7em 0.7em;
 	
 }
 
@@ -239,7 +266,7 @@ form {color:white;margin-bottom:3em;}
 	width:40%;
 	float:left;
 	}
-	.main{width:70%;margin:auto;}
+	.main{width:70%;margin-left:auto; margin-right:auto;padding-bottom:0;}
 	header{
 	text-align:left;
 	padding-left:1em;
@@ -250,6 +277,7 @@ form {color:white;margin-bottom:3em;}
 	.tooltip:hover .tooltiptext {visibility: visible;}
 label{width:15%;}
 input,textarea{width:25%;}
+.mobilenav{display:none;}
 
 #user{
 	background:rgba(0,0,0,0.4);
@@ -285,6 +313,10 @@ input,textarea{width:25%;}
  
 }
 
+.landingnav{
+	display:block;
+}
+
 #cookiename{
 	
 	float:left;
@@ -317,7 +349,7 @@ input,textarea{width:25%;}
     height:50px;
     padding-top:1em;
     border-radius:0 0 0.7em 0.7em;
-    overflow-x:initial;
+   
 	
 }
 

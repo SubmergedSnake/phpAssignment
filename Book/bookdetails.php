@@ -81,7 +81,7 @@ print("<p><strong>Synopsis</strong> &zigrarr; "."<span class='err'>".$book->getS
 </div>
 <div id="success" style="text-align: center"><h3>Your book has been submitted!</h3><button onclick="setPost()" style="background:#00ff00;color:white">OK &radic;</button></div>
 
-	</div>
+	
 	
 	
 	<div id="user">
@@ -110,7 +110,7 @@ print(" " . $name);
 
 
 
-			<div style="clear: both;"></div>
+			
 </div>
 	
 	

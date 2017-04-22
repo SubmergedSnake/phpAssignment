@@ -182,7 +182,7 @@ if (isset ( $_POST ["bookit"] )) {
 				</button>
 			</div>
 
-			<div style="clear: both"></div>
+			
 
 
 

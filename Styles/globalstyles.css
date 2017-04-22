@@ -185,23 +185,26 @@ form {color:white;margin-bottom:0;}
 
 .padtop1{padding-top:1em;}
 
-
-
-#success{
-	z-index:5;
-	padding:3em;
-	width:20%;
-	height:10%;
-	margin: auto;
-  position: absolute;
+#success {
+	 
   display:none;
-  top: 0; left: 0; bottom: 0; right: 0;
-  
-  border-radius:0.4em;
+  z-index:5;
+    background:rgba(0,0,0,0.4);
+    		margin: auto;
+  position: absolute;
  
+  top: 0; left: 0; bottom: 0; right: 0;
 }
 
-#success > button:hover{
+#success > div{
+	
+position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#success > div > button:hover{
 	font-size:1.5em;
 }
 
@@ -299,19 +302,7 @@ input,textarea{width:25%;}
 	padding-top:1.0em;
 }
 
-#success{
-	z-index:5;
-	padding:3em;
-	width:20%;
-	height:10%;
-	margin: auto;
-  position: absolute;
-  display:none;
-  top: 0; left: 0; bottom: 0; right: 0;
-  
-  border-radius:0.4em;
- 
-}
+
 
 .landingnav{
 	display:block;

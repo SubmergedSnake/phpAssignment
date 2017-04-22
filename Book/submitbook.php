@@ -81,9 +81,7 @@ if (isset ( $_POST ["bookit"] )) {
 				Submit a new book <small> <i class="fa fa-book" aria-hidden="true"></i></small>
 			</h2>
 			<nav class="subnav">
-				<li><a class="arrow" href="submitbook.php " class="nav">Submit a new
-						book</i>
-				</a></li>
+				
 				<li><a class="arrow" href="allbooks.php " class="nav">All books</a></li>
 				<li><a class="arrow" href="settings.php " class="nav">Settings</a></li>
 

@@ -4,6 +4,11 @@
 require_once "book.php";
 session_start();
 
+if (!isset($_SESSION['book'])){
+	header("location: index.php");
+	exit;
+}
+
 if (isset($_SESSION["book"])) {
 	$book = $_SESSION["book"];
 } 
@@ -44,6 +49,10 @@ if (isset($_POST["cancel"])) {
 
 </head>
 <body>
+
+
+<div id="success" style="text-align: center"><div><h3>Your book has been submitted!</h3><button onclick="setPost()" style="background:#00ff00;color:white">OK &radic;</button></div></div>
+
 	<div class="main">
 		
 		<header>
@@ -79,7 +88,6 @@ print("<p><strong>Synopsis</strong> &zigrarr; "."<span class='err'>".$book->getS
 
 </form>
 </div>
-<div id="success" style="text-align: center"><h3>Your book has been submitted!</h3><button onclick="setPost()" style="background:#00ff00;color:white">OK &radic;</button></div>
 
 	
 	
@@ -112,7 +120,7 @@ print(" " . $name);
 
 			
 </div>
-	
+	</div>
 	
 	<script>
 	function myAlert(){

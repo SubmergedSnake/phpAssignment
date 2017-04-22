@@ -54,7 +54,7 @@ else{
 			<nav class="subnav">
 				<li><a class="arrow" href="submitbook.php " class="nav">Submit a new book</i></a></li>
 				<li><a class="arrow" href="allbooks.php " class="nav">All books</a></li>
-				<li><a class="arrow" href="settings.php " class="nav">Settings</a></li>
+				
 
 			</nav>
 		</header>

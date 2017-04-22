@@ -110,7 +110,7 @@ class Book {
 			return 3;
 		}
 		
-		if (preg_match ( "/[öåä\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:\<\>,\.\?]/i", $this->author )) {
+		if (preg_match ( "/[öåä\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:\<\>,\?]/i", $this->author )) {
 			return 4;
 		} else {
 			return 0;

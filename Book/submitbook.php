@@ -101,7 +101,7 @@ if (isset ( $_POST ["bookit"] )) {
 				<p>
 					<label class="tooltip"><span class="tooltiptext">What is the name
 							of this book?</span>Title<small class="right">&ImaginaryI;</small></label>
-					<input placeholder="" type="text" name="title"
+					<input placeholder="&sstarf;" type="text" name="title"
 						value="<?php print(htmlentities($book->getTitle(), ENT_QUOTES, "UTF-8"))?>">
 
      <?php

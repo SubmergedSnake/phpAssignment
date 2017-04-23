@@ -74,7 +74,7 @@ if (isset ( $_POST ["bookit"] )) {
 
 </head>
 <body>
-	<div class="main">
+	<div class="main" style="padding-bottom:3em;">
 
 		<header>
 			<h2>
@@ -159,8 +159,9 @@ if (isset ( $_POST ["bookit"] )) {
 					print ("<span class='err'> " . $book->getError ( $publicationdateerror ) . "</span>") ;
 					?> 
 </p>
+</fieldset>
 
-
+<fieldset style="border:none">
 				<p>
 					<label class="tooltip"><span class="tooltiptext">A short summary of
 							the book</span>Synopsis<small class="right">&ImaginaryI;</small></label>
@@ -181,7 +182,7 @@ if (isset ( $_POST ["bookit"] )) {
 					<i class="fa fa-ban" aria-hidden="true"></i> Cancel
 				</button>
 				
-				<div style="clear:both"></div>
+				<div style="clear:right"></div>
 				
 			</div>
 

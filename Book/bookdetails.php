@@ -2,7 +2,11 @@
 
 <?php
 require_once "book.php";
+
 session_start();
+
+
+
 
 if (!isset($_SESSION['book'])){
 	header("location: index.php");
@@ -18,17 +22,17 @@ if (isset($_POST['revise'])){
 	exit;
 }
 
-if (isset($_POST['savetodb'])){
-	unset($_SESSION["book"]);
-	header("location: index.php");
-	exit;
-}
 
 if (isset($_POST["cancel"])) {
 	unset($_SESSION["book"]);
 	header("location: index.php");
 	exit;
 	
+}
+
+if (isset($_POST['dbok'])){
+	header("location: index.php");
+	exit;
 }
 
 ?>
@@ -51,7 +55,7 @@ if (isset($_POST["cancel"])) {
 <body>
 
 
-<div id="success" style="text-align: center"><div><h3>Your book has been submitted!</h3><button onclick="setPost()" style="background:#00ff00;color:white">OK &radic;</button></div></div>
+<div id="success" style="text-align: center"><div><h3>Your book has been submitted!</h3><form method="POST"><button type="submit" name="dbok" style="background:#00ff00;color:white">OK &radic;</button></form></div></div>
 
 	<div class="main">
 		
@@ -75,7 +79,7 @@ print("<p><strong>Synopsis</strong> &zigrarr; "."<span class='err'>".$book->getS
 ?>
 
  <div style="padding-top:1em" >
-			<button type="button" class="submit" onclick="myAlert()">
+			<button type="submit" class="submit" name="confirm">
 				<i class="fa fa-check-square-o" aria-hidden="true"></i> Confirm 
 			</button>
 			
@@ -136,6 +140,33 @@ print(" " . $name);
 	
 <script src="../Jscript/dashboard.js">
 </script>
+
+<?php 
+if (isset($_POST['confirm'])){
+	try {
+		require_once "bookPDO.php";
+		
+		$book = $_SESSION['book'];
+		
+		$bookhandler = new bookPDO();
+		
+		$bookhandler->addBook($book);
+		
+	} catch (Exception $error) {
+		print($error->getMessage());
+	}finally{
+	
+	echo ('<script>myAlert();</script>')
+	;
+	
+	}
+	
+	/*unset($_SESSION["book"]);
+	header("location: index.php");
+	exit;*/
+}
+?>
+
 
 </body>
 </html>

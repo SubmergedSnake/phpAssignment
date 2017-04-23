@@ -19,6 +19,7 @@ class Book {
 		return self::$errorlist;
 	}
 	
+	private $id;
 	private $title;
 	private $author;
 	private $genre;

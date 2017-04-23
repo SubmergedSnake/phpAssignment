@@ -1,5 +1,17 @@
 <?php
 require_once "book.php";
+
+try {
+	require_once "bookPDO.php";
+	
+	$bookhandler = new bookPDO();
+	
+	$books = $bookhandler-> listAllBooks();
+	
+	
+} catch (Exception $error) {
+	print ($error ->getMessage());
+}
 ?>
 
 <html>
@@ -12,6 +24,7 @@ require_once "book.php";
 <link href="https://fonts.googleapis.com/css?family=Handlee"
 	rel="stylesheet">
 <link rel="stylesheet" href="../Styles/globalstyles.css">
+<link rel="stylesheet" href="../Styles/table.css">
 <title>The Fine Print</title>
 
 </head>
@@ -30,7 +43,21 @@ require_once "book.php";
 			</nav>
 		</header>
 
-
+<div id="tablecontainer">
+<table>
+<col style="width:15%">
+        <col style="width:15%">
+        <col style="width:10%">
+        <col style="width:10%">
+<tr id="lgtable"><th>Title</th><th>Author</th><th>Genre</th><th style="word-wrap:normal;font-size:1em">Publication date</th><th>Contact email</th><th>Synopsis</th></tr>
+<tr id="smtable"><th>T</th><th>A</th><th>G</th><th style="word-wrap:normal;font-size:1em">PD</th><th>CE</th><th>S</th></tr>
+<?php foreach($books as $book){
+print('<tr><td>' . $book ->getTitle() . '</td><td>' . $book ->getAuthor()
+		. '</td><td>' . $book ->getGenre() . '</td><td>' . date("d.m.Y", strtotime($book ->getPublicationDate())) . '</td>
+<td>' . $book ->getContactEmail() . '</td><td>' . $book ->getSynopsis() . '</td></tr>');
+}?>
+</table>
+</div>
 	</div>
 	
 	

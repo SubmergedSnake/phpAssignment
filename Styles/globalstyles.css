@@ -52,11 +52,11 @@ button{
 	border:none;
 }
 
-.submit{float:left;margin-left:1em;color:white;background:#00ff00;font-size:1em;}
+.submit{margin-left:1em;color:white;background:#00ff00;font-size:1em;}
 .submit:hover{padding:1em;}
-.cancel{float:left;margin-left:1em;color:white;font-size:1em;background:#ff8080;}
+.cancel{margin-left:1em;color:white;font-size:1em;background:#ff8080;}
 .cancel:hover{padding:1em;}
-.revise{background:orange;float:left;margin-left:1em;color:white;font-size:1em;}
+.revise{background:orange;margin-left:1em;color:white;font-size:1em;}
 .revise:hover{padding:1em;}
 
 header{
@@ -160,7 +160,7 @@ form > p {
 	color:white;
 	min-height:100%;
 	margin-bottom:0;
-	padding-bottom:3.8em;		
+	padding-bottom:1em;		
 }
 
 .glowhome{
@@ -208,7 +208,7 @@ position: absolute;
   transform: translate(-50%, -50%);
 }
 
-#success > div > button:hover{
+#success > div > form > button:hover{
 	font-size:1.5em;
 }
 
@@ -228,8 +228,11 @@ position: absolute;
 	
 	float:left;
 	width:40%;
-	font-size:0.8em;
-	
+	font-size:0.8em;	
+}
+
+#cookiename:hover{
+	cursor:help;
 }
 
 #pipe{
@@ -268,12 +271,12 @@ position: absolute;
 }
 
 
-@media (min-width:590px){
+@media (min-width:860px){
 	.half{
 	width:40%;
 	float:left;
 	}
-	.main{width:70%;margin-left:auto; margin-right:auto;padding-bottom:0;}
+	.main{width:70%;margin-left:auto; margin-right:auto;}
 	header{
 	text-align:left;
 	padding-left:1em;
@@ -320,9 +323,7 @@ input,textarea{width:25%;}
 	
 }
 
-#cookiename:hover{
-	cursor:help;
-}
+
 
 #pipe{
 	float:left;

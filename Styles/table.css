@@ -27,6 +27,15 @@ td, th{
 	
 }
 
+.delbtntd{
+	text-align:center;
+		
+}
+
+td.delbtntd > button {
+	background:rgba(0,0,0,0);
+	color:red;
+}
 
 #lgtable{
 	display:none;

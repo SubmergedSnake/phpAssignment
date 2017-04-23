@@ -57,6 +57,19 @@ class Book {
 		$this->contactemail = trim ( $contactemail );
 		$this->publicationdate = trim ( $publicationdate );
 	}
+	
+	public function setId($id){
+		$this->id = $id;
+	}
+	
+	public function getId(){
+		return $this->id;
+	}
+	
+	
+	
+	
+	
 	public function setTitle($title) {
 		$this->title = trim ( $title );
 	}

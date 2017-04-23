@@ -12,6 +12,11 @@ try {
 } catch (Exception $error) {
 	print ($error ->getMessage());
 }
+
+if(isset($_POST['delthis'])){
+	print("DELTHIS: " . $_POST['delbook']);
+}
+
 ?>
 
 <html>
@@ -39,24 +44,39 @@ try {
 				<li><a class="arrow" href="submitbook.php " class="nav">Submit a new book</i></a></li>
 				
 				<li><a class="arrow" href="settings.php " class="nav">Settings</a></li>
+				<li><a class="arrow" href="search.php " class="nav">Search</a></li>
 
 			</nav>
 		</header>
 
 <div id="tablecontainer">
+<form method="POST" action="" id="bookform"></form>
 <table>
 <col style="width:15%">
         <col style="width:15%">
         <col style="width:10%">
         <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:5%">
+       
 <tr id="lgtable"><th>Title</th><th>Author</th><th>Genre</th><th style="word-wrap:normal;font-size:1em">Publication date</th><th>Contact email</th><th>Synopsis</th></tr>
 <tr id="smtable"><th>T</th><th>A</th><th>G</th><th style="word-wrap:normal;font-size:1em">PD</th><th>CE</th><th>S</th></tr>
-<?php foreach($books as $book){
-print('<tr><td>' . $book ->getTitle() . '</td><td>' . $book ->getAuthor()
+<?php foreach($books as $index => $book){
+echo('<tr><td>' . $book ->getTitle() . '</td><td>' . $book ->getAuthor()
 		. '</td><td>' . $book ->getGenre() . '</td><td>' . date("d.m.Y", strtotime($book ->getPublicationDate())) . '</td>
-<td>' . $book ->getContactEmail() . '</td><td>' . $book ->getSynopsis() . '</td></tr>');
+<td>' . $book ->getContactEmail() . '</td><td>' . $book ->getSynopsis() .$book->getId().'</td>
+<td class="delbtntd"><input type="hidden" form="bookform" name="delbook" value="'. $books[$index] -> getId().'"/><button type="submit" form="bookform" name="delthis"><i class="fa fa-trash" aria-hidden="true"></i></button></td></tr>');
 }?>
 </table>
+
+
+<?php 
+if(isset($_POST['delthis'])){
+	print("DELTHIS: " . $_POST['delbook']);
+}
+?>
+
 </div>
 	</div>
 	

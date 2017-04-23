@@ -28,6 +28,7 @@ class bookPDO {
 		
 		while($row = $stmt->fetchObject()){
 			$book=new Book();
+			$book->setId($row->id);
 			$book->setAuthor($row->author);
 			$book->setTitle($row->title);
 			$book->setGenre($row->genre);

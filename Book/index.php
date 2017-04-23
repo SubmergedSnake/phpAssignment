@@ -31,6 +31,7 @@ unset($_SESSION["book"]);
 <nav class="landingnav">
 <li class="stack"><a class="arrow" href="submitbook.php"><i class="fa fa-book" aria-hidden="true"></i> Submit a new book</a></li>
 <li class="stack"><a class="arrow" href="allbooks.php" ><i class="fa fa-database" aria-hidden="true"></i> All books</a></li>
+<li class="stack"><a class="arrow" href="search.php" ><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
 <li class="stack"><a class="arrow" href="settings.php " ><i class="fa fa-sliders" aria-hidden="true"></i> Settings</a></li>
 
 </nav>
@@ -38,7 +39,9 @@ unset($_SESSION["book"]);
 <nav class="mobilenav">
 <li class="stack"><a class="arrow" href="submitbook.php"><i class="fa fa-book" aria-hidden="true"></i></a></li>
 <li class="stack"><a class="arrow" href="allbooks.php" ><i class="fa fa-database" aria-hidden="true"></i></a></li>
+<li class="stack"><a class="arrow" href="search.php " ><i class="fa fa-search" aria-hidden="true"></i></a></li>
 <li class="stack"><a class="arrow" href="settings.php " ><i class="fa fa-sliders" aria-hidden="true"></i></a></li>
+
 </nav>
 </div>
 

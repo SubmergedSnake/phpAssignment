@@ -84,6 +84,7 @@ if (isset ( $_POST ["bookit"] )) {
 				
 				<li><a class="arrow" href="allbooks.php " class="nav">All books</a></li>
 				<li><a class="arrow" href="settings.php " class="nav">Settings</a></li>
+				<li><a class="arrow" href="search.php " class="nav">Search</a></li>
 
 			</nav>
 		</header>

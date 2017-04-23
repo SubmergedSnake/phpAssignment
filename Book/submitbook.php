@@ -180,6 +180,9 @@ if (isset ( $_POST ["bookit"] )) {
 				<button type="submit" class="cancel" name="cancel">
 					<i class="fa fa-ban" aria-hidden="true"></i> Cancel
 				</button>
+				
+				<div style="clear:both"></div>
+				
 			</div>
 
 			

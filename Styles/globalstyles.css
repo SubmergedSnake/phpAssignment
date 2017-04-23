@@ -12,7 +12,7 @@ a{
 	display:block;
 }
 
-body,html{height:100%;margin:0;overflow:hidden;}
+body,html{height:100%;margin:0;}
 
 nav.subnav >li > a{display:inline;}
 
@@ -109,7 +109,7 @@ input, textarea {
 
 
 
-input:focus {
+input:focus, textarea:focus {
     outline: none !important;
     border:1px solid rgba(255, 128, 128, 0.6);
 }
@@ -117,6 +117,10 @@ input:focus {
 textarea{height:150px;}
 
 form {color:white;margin-bottom:0;}
+
+form > p {
+	display:flex;
+}
 
 
 /*CSS for tooltip*/
@@ -351,6 +355,8 @@ input,textarea{width:25%;}
 
 }
 /*End of lg-screen definitions */'
+
+
 
 
 

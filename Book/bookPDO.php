@@ -62,6 +62,20 @@ class bookPDO {
 		
 		$stmt->execute();
 	}
+
+
+function deleteBook($id){
+	
+	$sql = "DELETE FROM book WHERE id = :id";
+	
+	if (! $stmt = $this->db->prepare($sql)){
+		$error = $this->db->errorInfo();
+		throw new PDOException($error[2], $error[1]);
+	}
+	
+	$stmt ->bindValue(":id", $id, PDO::PARAM_INT);	
+	$stmt->execute();
+}
 }
 
 ?>

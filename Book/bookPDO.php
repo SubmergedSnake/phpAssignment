@@ -76,6 +76,25 @@ function deleteBook($id){
 	$stmt ->bindValue(":id", $id, PDO::PARAM_INT);	
 	$stmt->execute();
 }
+
+function getBook($id){
+	
+	$sql = "SELECT * FROM book WHERE id = :id";
+	
+	if (! $stmt = $this->db->prepare($sql)){
+		$error = $this->db->errorInfo();
+		throw new PDOException($error[2], $error[1]);
+	}
+	
+	$stmt ->bindValue(":id", $id, PDO::PARAM_INT);
+	$stmt->execute();
+	
+	$row = $stmt -> fetchObject(); 
+	
+	$book = new Book($row->title, $row->author, $row->genre, $row->synopsis, $row->contactemail, $row->publicationdate);
+	
+	return $book;
+}
 }
 
 ?>

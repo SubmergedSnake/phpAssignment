@@ -67,20 +67,20 @@ try {
 <table>
 <col style="width:15%">
         <col style="width:15%">
-        <col style="width:10%">
-        <col style="width:10%">
-        <col style="width:10%">
-        <col style="width:10%">
+        <col style="width:5%">
         <col style="width:5%">
        
-<tr id="lgtable"><th>Title</th><th>Author</th><th>Genre</th><th style="word-wrap:normal;font-size:1em">Publication date</th><th>Contact email</th><th>Synopsis</th></tr>
+       
+<tr id="lgtable"><th class="bold">Title</th><th class="bold">Author</th><th>Inspect</th><th>Delete</th><!--<th>Contact email</th><th>Synopsis</th>--></tr>
 <tr id="smtable"><th>T</th><th>A</th><th>G</th><th style="word-wrap:normal;font-size:1em">PD</th><th>CE</th><th>S</th></tr>
 <?php foreach($_SESSION['books'] as $book){
 echo('<tr><td>' . $book ->getTitle() . '</td><td>' . $book ->getAuthor()
-		. '</td><td>' . $book ->getGenre() . '</td><td>' . date("d.m.Y", strtotime($book ->getPublicationDate())) . '</td>
-<td>' . $book ->getContactEmail() . '</td><td>' . $book ->getSynopsis().'</td>
-<td class="delbtntd"><button type="button"><a href="allbooks.php?delthis='.$book->getId().'"><i class="fa fa-trash" aria-hidden="true">
-</i></a></button></td></tr>');
+		. '</td>' .
+		
+		//. $book ->getGenre() . '</td><td>' . date("d.m.Y", strtotime($book ->getPublicationDate())) . '</td>
+//<td>' . $book ->getContactEmail() . '</td><td>' . $book ->getSynopsis().'</td>
+'<td class="delbtntd"><a style="color:#00ff00;" href="allbooks.php?delthis='.$book->getId().'"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+<td class="delbtntd"><a style="color:#ff8080;" href="allbooks.php?delthis='.$book->getId().'"><i class="fa fa-trash" aria-hidden="true"></i></a></td></tr>');
 }?>
 </table>
 

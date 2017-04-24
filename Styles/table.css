@@ -32,10 +32,16 @@ td, th{
 		
 }
 
-td.delbtntd > button {
-	background:rgba(0,0,0,0);
-	color:red;
+
+.bold{
+	font-size:1.35em;
 }
+
+
+td.delbtntd > a{
+background:rgba(255,255,255,0);
+}
+
 
 #lgtable{
 	display:none;

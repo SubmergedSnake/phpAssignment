@@ -51,7 +51,20 @@ button{margin-left:1.4em;margin-top:1em;}
 				</h4>				
 				<label class="searchlb">By Title<input type="radio" name="condition" value="title" /></label>
 				 <label class="searchlb">By Author<input type="radio" name="condition" value="author" /></label>
-				 <label class="searchlb">By Genre<input type="radio" name="condition" value="genre" /></label>
+				
+				 <label class="searchlb">By Genre
+				 <select id="genre">
+				 <option selected></option>
+  <option value="Horror">Horror</option>
+  <option value="Romance">Romance</option>
+  <option value="Satire">Satire</option>
+  <option value="Science">Science</option>
+  <option value="Fantasy">Fantasy</option>
+  <option value="Thriller">Thriller</option>
+  <option value="Drama">Drama</option>
+
+</select>
+</label>
 				 
 				<label style="width:100%;padding-top:0.7em;">Search params<input
 					type="text" style="width: 70%" name="searchparam" id="searchparam"  /></label>
@@ -117,7 +130,9 @@ $( document ).ready(function() {
 	$("#search").click(function(){
 		var condition = $('input[name="condition"]:checked').val();
 		 var searchparam = $('#searchparam').val();
-		 alert("Params selected: " + condition + ", " + searchparam);
+		 var genre = $('#genre').val();
+		 alert("Chosen genre: " + genre);
+		 
      
       
     $.ajax({
@@ -125,7 +140,7 @@ url: "bookJSON.php",
 method: "get",
 datatype: "json",
 timeout: 5000,
-data:{searchparam: searchparam, condition:condition}
+data:{searchparam: searchparam, condition:condition, genre:genre}
     })
 
     .done(function(data){

@@ -74,6 +74,36 @@ class bookPDO {
 		
 	}
 	
+	function findBooksByGenre($genre){
+		
+	
+		$sql = "SELECT * FROM book WHERE genre = :genre";
+		
+		$stmt = $this -> db->prepare($sql);
+		
+		$stmt ->bindValue(":genre", $genre, PDO::PARAM_STR);
+		
+		$stmt -> execute();
+		
+		$books = array();
+		
+		while($row = $stmt->fetchObject()){
+			$book=new Book();
+			$book->setId($row->id);
+			$book->setAuthor($row->author);
+			$book->setTitle($row->title);
+			$book->setGenre($row->genre);
+			$book->setContactEmail($row->contactemail);
+			$book->setPublicationDate($row->publicationdate);
+			$book->setSynopsis($row->synopsis);
+			
+			$books[] = $book;
+		}
+		$this->counter = $stmt->rowCount();
+		return $books;
+		
+	}
+	
 	function addBook($book){
 		
 		$sql = "INSERT INTO book (title, author, genre, contactemail, publicationdate, synopsis) VALUES 

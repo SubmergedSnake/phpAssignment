@@ -49,7 +49,7 @@ class bookPDO {
 		
 
 	//$sql = "SELECT * FROM book WHERE genre LIKE '%atire%'";
-	$sql = "SELECT * FROM book WHERE $condition = '$param'";
+	$sql = "SELECT * FROM book WHERE $condition LIKE '%$param%'";
 		
 		$stmt = $this -> db->prepare($sql);
 		

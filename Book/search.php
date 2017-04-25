@@ -22,7 +22,7 @@
 label, input, textarea{float:none;margin-left:1em;}
 form{text-align:left;}
 button{margin-left:1.4em;margin-top:1em;}
-.result{width:250px;float:left;background:rgba(255,255,255,0.6);margin:1em;padding:0.5em;border-radius:0.4em;}
+.result{color:white;width:230px;float:left;background:rgba(0,0,0,0.6);margin:1em;padding:0.5em;border-radius:0.4em;}
 
 </style>
 
@@ -45,7 +45,7 @@ button{margin-left:1.4em;margin-top:1em;}
 		</header>
 
 		<div class="half" style="float:none">
-			<form action="search.php" method="POST">
+			<form >
 				<h4>
 					Search for a book
 				</h4>				
@@ -54,9 +54,9 @@ button{margin-left:1.4em;margin-top:1em;}
 				 <label class="searchlb">By Genre<input type="radio" name="condition" value="genre" /></label>
 				 
 				<label style="width:100%;padding-top:0.7em;">Search params<input
-					type="text" style="width: 70%" name="searchparam" value="" /></label>
+					type="text" style="width: 70%" name="searchparam" id="searchparam"  /></label>
 					
-					<button type="submit" name="search"
+					<button type="button" name="search" id="search"
 					style="background: #00ff00">
 					Search <i class="fa fa-search" aria-hidden="true"></i>
 				</button>
@@ -69,8 +69,9 @@ button{margin-left:1.4em;margin-top:1em;}
 
 		<div class="padtop1 pbsides2" id="results">
 		
-		
 		</div>
+		
+		
 <div style="clear:both"></div>
 
 	</div>
@@ -113,16 +114,23 @@ foreach ( $usernames as $name ) {
 
 <script>
 $( document ).ready(function() {
-	
+	$("#search").click(function(){
+		var condition = $('input[name="condition"]:checked').val();
+		 var searchparam = $('#searchparam').val();
+		 alert("Params selected: " + condition + ", " + searchparam);
+     
+      
     $.ajax({
 url: "bookJSON.php",
 method: "get",
 datatype: "json",
-timeout: 5000
+timeout: 5000,
+data:{searchparam: searchparam, condition:condition}
     })
 
     .done(function(data){
-        $('#results').html(" ");
+        $("#results").empty();
+        
         console.log(data);
         parseddata = $.parseJSON(data);
         console.log(parseddata);
@@ -134,6 +142,7 @@ timeout: 5000
     .fail(function(){
         $('#results').html('<strong>Results are currently unavailable!</strong>');
     })
+});
 });
 </script>
 

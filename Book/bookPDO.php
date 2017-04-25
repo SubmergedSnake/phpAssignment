@@ -44,6 +44,36 @@ class bookPDO {
 		
 	}
 	
+	
+	function findBooksWithParams($condition, $param){
+		
+
+	//$sql = "SELECT * FROM book WHERE genre LIKE '%atire%'";
+	$sql = "SELECT * FROM book WHERE $condition = '$param'";
+		
+		$stmt = $this -> db->prepare($sql);
+		
+		$stmt -> execute();
+		
+		$books = array();
+		
+		while($row = $stmt->fetchObject()){
+			$book=new Book();
+			$book->setId($row->id);
+			$book->setAuthor($row->author);
+			$book->setTitle($row->title);
+			$book->setGenre($row->genre);
+			$book->setContactEmail($row->contactemail);
+			$book->setPublicationDate($row->publicationdate);
+			$book->setSynopsis($row->synopsis);
+			
+			$books[] = $book;
+		}
+		$this->counter = $stmt->rowCount();
+		return $books;
+		
+	}
+	
 	function addBook($book){
 		
 		$sql = "INSERT INTO book (title, author, genre, contactemail, publicationdate, synopsis) VALUES 

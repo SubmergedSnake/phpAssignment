@@ -63,7 +63,7 @@ class Book implements JsonSerializable{
 			"title" => $this->title,
 			"author" => $this->author,
 			"genre" => $this->genre,
-			"synopsis" => $this->genre,
+			"synopsis" => $this->synopsis,
 			"contactemail" => $this->contactemail,
 			"publicationdate" => $this->publicationdate
 		);

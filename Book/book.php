@@ -1,5 +1,5 @@
 <?php
-class Book {
+class Book implements JsonSerializable{
 	private static $errorlist = array (
 			- 1 => "&cross; Unknown error!",
 			0 => "",
@@ -56,6 +56,17 @@ class Book {
 		$this->synopsis = trim ( $synopsis );
 		$this->contactemail = trim ( $contactemail );
 		$this->publicationdate = trim ( $publicationdate );
+	}
+	
+	public function jsonSerialize(){
+		return array (
+			"title" => $this->title,
+			"author" => $this->author,
+			"genre" => $this->genre,
+			"synopsis" => $this->genre,
+			"contactemail" => $this->contactemail,
+			"publicationdate" => $this->publicationdate
+		);
 	}
 	
 	public function setId($id){

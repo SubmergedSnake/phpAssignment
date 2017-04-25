@@ -1,11 +1,14 @@
 
-<?php
-?>
+
 
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
 <link rel="icon" type="image/x-icon" href="../Images/favicon.ico" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,6 +22,7 @@
 label, input, textarea{float:none;margin-left:1em;}
 form{text-align:left;}
 button{margin-left:1.4em;margin-top:1em;}
+.result{width:250px;float:left;background:rgba(255,255,255,0.6);margin:1em;padding:0.5em;border-radius:0.4em;}
 
 </style>
 
@@ -31,9 +35,7 @@ button{margin-left:1.4em;margin-top:1em;}
 				Search <small><i class="fa fa-search" aria-hidden="true"></i></small>
 			</h2>
 			<nav class="subnav">
-				<li><a class="arrow" href="submitbook.php " class="nav">Submit a new
-						book</i>
-				</a></li>
+				<li><a class="arrow" href="submitbook.php " class="nav">Submit a new book</a></li>
 				<li><a class="arrow" href="allbooks.php " class="nav">All books</a></li>
 				<li><a class="arrow" href="settings.php " class="nav">Settings</a></li>
 
@@ -43,17 +45,18 @@ button{margin-left:1.4em;margin-top:1em;}
 		</header>
 
 		<div class="half" style="float:none">
-			<form action="settings.php" method="POST">
+			<form action="search.php" method="POST">
 				<h4>
 					Search for a book
 				</h4>				
 				<label class="searchlb">By Title<input type="radio" name="condition" value="title" /></label>
 				 <label class="searchlb">By Author<input type="radio" name="condition" value="author" /></label>
+				 <label class="searchlb">By Genre<input type="radio" name="condition" value="genre" /></label>
 				 
 				<label style="width:100%;padding-top:0.7em;">Search params<input
 					type="text" style="width: 70%" name="searchparam" value="" /></label>
 					
-					<button type="submit"
+					<button type="submit" name="search"
 					style="background: #00ff00">
 					Search <i class="fa fa-search" aria-hidden="true"></i>
 				</button>
@@ -63,17 +66,12 @@ button{margin-left:1.4em;margin-top:1em;}
 
 		</div>
 
-<!--  
-	<label>Search params<input
-					type="text" style="width: 70%" name="searchparam" value="" /></label>
-					
-				<button type="submit"
-					style="background: #00ff00">
-					Search <i class="fa fa-search" aria-hidden="true"></i>
-				</button>
--->
 
-		<div class="padtop1 pbsides2" id="results">Results here</div>
+		<div class="padtop1 pbsides2" id="results">
+		
+		
+		</div>
+<div style="clear:both"></div>
 
 	</div>
 
@@ -113,6 +111,31 @@ foreach ( $usernames as $name ) {
 		<div style="clear: both;"></div>
 	</div>
 
+<script>
+$( document ).ready(function() {
+	
+    $.ajax({
+url: "bookJSON.php",
+method: "get",
+datatype: "json",
+timeout: 5000
+    })
+
+    .done(function(data){
+        $('#results').html(" ");
+        console.log(data);
+        parseddata = $.parseJSON(data);
+        console.log(parseddata);
+		$.each(parseddata, function(index, book){
+			$('#results').append('<span class="result">' +
+					'<p>' + book.title + '<br>' + book.author + '<br>' + book.genre + '<br>' + book.publicationdate + '<br>' + book.contactemail + '<br>' + book.synopsis + '</p></span>');
+		})
+    })
+    .fail(function(){
+        $('#results').html('<strong>Results are currently unavailable!</strong>');
+    })
+});
+</script>
 
 
 	<script src="../Jscript/dashboard.js">

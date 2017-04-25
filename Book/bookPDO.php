@@ -1,5 +1,6 @@
 <?php
 
+require_once 'book.php';
 
 class bookPDO {
 	

@@ -250,6 +250,23 @@ position: absolute;
 	padding-bottom:3em;
 }
 
+.pbsides2{
+	padding-left:2em;
+	padding-right:2em;
+}
+
+input[type="radio"]{
+	width:auto;
+	display:inline;
+}
+
+
+
+.searchlb{
+	width:auto;
+	padding:0.3em;
+}
+
 #usertooltip{
 	position:fixed;
 	left:0;

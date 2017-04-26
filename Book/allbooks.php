@@ -51,6 +51,7 @@ try {
 <link rel="stylesheet" href="../Styles/table.css">
 <title>The Fine Print</title>
 
+
 </head>
 <body>
 	<div class="main">
@@ -121,7 +122,7 @@ if (! empty ( $viewbook )) {
 </div>
 
 
-
+<div style="clear:both"></div>
 
 
 
@@ -169,6 +170,8 @@ foreach ( $usernames as $name ) {
 		document.getElementById("viewbook").style.display = "block";
 	};	
 	</script>
+	
+	
 
 
 

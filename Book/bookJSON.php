@@ -32,13 +32,7 @@ if(isset($_GET['condition']) && (isset($_GET['searchparam']))){
 
 try{
 	
-	$bookhandler = new bookPDO();
-	//$result = $bookhandler->findsBooksWithParams($condition,$param) ;
-	$result = $bookhandler->listAllBooks() ;
 	
-	
-	//print(json_encode($sentparams));
-	print(json_encode($result));
 }catch(Exception $error){
 	print("An error has occurred :<(");
 }

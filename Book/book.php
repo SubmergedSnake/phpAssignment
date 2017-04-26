@@ -96,7 +96,7 @@ class Book implements JsonSerializable{
 				return 5;
 		}
 		
-		if (preg_match ( "/[öåä\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:\<\>,\.\?]/i", $this->title )) {
+		if (preg_match ( "/[öåä\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:\<\>\?]/i", $this->title )) {
 			return 4;
 		}
 		

@@ -23,6 +23,10 @@ label, input, textarea{float:none;margin-left:1em;}
 form{text-align:left;}
 button{margin-left:1.4em;margin-top:1em;}
 .result{color:white;width:230px;float:left;background:rgba(0,0,0,0.6);margin:1em;padding:0.5em;border-radius:0.4em;}
+.half60{width:60%;padding:1em;}
+#searchparams{visibility:hidden}
+
+
 
 </style>
 
@@ -44,17 +48,19 @@ button{margin-left:1.4em;margin-top:1em;}
 			</nav>
 		</header>
 
-		<div class="half" style="float:none">
+		<div class="half60" style="float:none">
 			<form >
 				<h4>
 					Search for a book
-				</h4>				
+				</h4>		
+					
 				<label class="searchlb">By Title<input type="radio" name="condition" value="title" /></label>
 				 <label class="searchlb">By Author<input type="radio" name="condition" value="author" /></label>
 				
-				 <label class="searchlb">By Genre
+				
+				 <label class="searchlb" id="genrelabel">By Genre
 				 <select id="genre">
-				 <option selected></option>
+				 <option selected value="0"></option>
   <option value="Horror">Horror</option>
   <option value="Romance">Romance</option>
   <option value="Satire">Satire</option>
@@ -66,7 +72,7 @@ button{margin-left:1.4em;margin-top:1em;}
 </select>
 </label>
 				 
-				<label style="width:100%;padding-top:0.7em;">Search params<input
+				<label id="searchparams" style="width:100%;padding-top:0.7em;">Search params<input
 					type="text" style="width: 70%" name="searchparam" id="searchparam"  /></label>
 					
 					<button type="button" name="search" id="search"
@@ -124,16 +130,30 @@ foreach ( $usernames as $name ) {
 
 		<div style="clear: both;"></div>
 	</div>
+	
+	<script>
+	$(document).ready(function(){
+
+	    $('input:radio').click(function(){
+	        $('#searchparams').css( "visibility", "visible" ); 
+	        $("select#genre").val("0"); 
+	    }) 
+
+	    $('#genrelabel').click(function(){
+	        $('#searchparams').css( "visibility", "hidden" ); 
+	        $('input:radio').prop('checked', false);
+	         
+	    })             
+
+	});
+	</script>
 
 <script>
 $( document ).ready(function() {
 	$("#search").click(function(){
 		var condition = $('input[name="condition"]:checked').val();
 		 var searchparam = $('#searchparam').val();
-		 var genre = $('#genre').val();
-		 alert("Chosen genre: " + genre);
-		 
-     
+		 var genre = $('#genre').val();   
       
     $.ajax({
 url: "bookJSON.php",
@@ -149,10 +169,14 @@ data:{searchparam: searchparam, condition:condition, genre:genre}
         console.log(data);
         parseddata = $.parseJSON(data);
         console.log(parseddata);
+        if(parseddata.length){
 		$.each(parseddata, function(index, book){
 			$('#results').append('<span class="result">' +
 					'<p>' + book.title + '<br>' + book.author + '<br>' + book.genre + '<br>' + book.publicationdate + '<br>' + book.contactemail + '<br>' + book.synopsis + '</p></span>');
 		})
+        }else{
+$('#results').append('<h4>No results found!</h4>');
+        }
     })
     .fail(function(){
         $('#results').html('<strong>Results are currently unavailable!</strong>');
